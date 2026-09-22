@@ -3,6 +3,10 @@ const total = document.getElementById("total");
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
+if(carrinho.length === 0){
+    listaCarrinho.innerHTML = "<p>Seu carrinho está vazio</p>";
+}
+
 carrinho.forEach(item => {
 
     const livro = item.livro;
@@ -15,7 +19,7 @@ carrinho.forEach(item => {
 
             <p>Autor: ${livro.autor}</p>
             <p>Categoria: ${livro.categoria}</p>
-            <p>Preço: R$ ${livro.preco}</p>
+            <p>Preço: R$ ${livro.preco.toFixed(2)}</p>
 
             <button onclick="diminuirQuantidade(${livro.id})">-</button>
 
@@ -23,7 +27,13 @@ carrinho.forEach(item => {
 
             <button onclick="aumentarQuantidade(${livro.id})">+</button>
 
+            <button onclick="removerCarrinho(${livro.id})">
+            Remover
+            </button>
+
             <P>Subtotal: R$ ${subtotal.toFixed(2)}</p>
+
+
         </div>
     `;
 
@@ -56,6 +66,15 @@ function diminuirQuantidade(id) {
     if (item.quantidade > 1) {
         item.quantidade--;
     }
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    location.reload();
+}
+
+function removerCarrinho(id) {
+
+    carrinho = carrinho.filter(item => item.livro.id !== id);
 
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 

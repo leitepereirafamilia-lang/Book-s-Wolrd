@@ -1,12 +1,14 @@
-const listaCarrinho = document.getElementById("lista-carrinho");
+const listaLivros = document.getElementById("lista-livros");
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-carrinho.forEach(item => {
+console.log(livros.length);
 
-    const livro = item.livro;
+livros.sort(() => Math.random() - 0.5);
 
-    listaCarrinho.innerHTML += `
+livros.forEach(livro => {
+
+    listaLivros.innerHTML += `
         <div>
             <h2>${livro.titulo}</h2>
 
@@ -14,21 +16,13 @@ carrinho.forEach(item => {
             <p>Categoria: ${livro.categoria}</p>
             <p>Preço: R$ ${livro.preco}</p>
 
-            <button onclick="diminuirQuantidade(${livro.id})">-</button>
-
-            <span>${item.quantidade}</span>
-
-            <button onclick="aumentarQuantidade(${livro.id})">+</button>
-
-            <button onclick="removerCarrinho(${livro.id})">
-                Remover
+            <button onclick="adicionarCarrinho(${livro.id})">
+                Adicionar ao carrinho
             </button>
         </div>
     `;
 
 });
-
-
 
 function adicionarCarrinho(id) {
 
@@ -48,14 +42,4 @@ function adicionarCarrinho(id) {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
     console.log(carrinho);
-}
-
-
-function removerCarrinho(id) {
-
-    carrinho = carrinho.filter(item => item.livro.id !== id);
-
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-    location.reload();
 }
