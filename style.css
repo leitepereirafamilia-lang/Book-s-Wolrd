@@ -21,35 +21,40 @@ nav ul li a:hover {
 }
  
 /* estilo main pag generos*/
- main{
-    display: flex-start;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0px;
- 
- 
- }
- 
- .frase h1 {
-    text-align:left;
-    margin-left:50px;
- }
- 
- 
- .caixa {
-    width: 200px;
-    height:150px;
-    padding: 20px;
+ main {
+    margin: 0;
+}
+
+.frase h1 {
+    text-align: left;
+    margin-left: 50px;
+}
+
+.caixas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 200px;
+    row-gap:100px;
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 40px auto;
+}
+
+.caixa {
+    width: 100%;
+    height: 200px;
+
     border: 2px solid #c2baba;
     border-radius: 15px;
-   display:inline-block;
-   margin : 100px;
-   text-decoration:none;
-   color:black
- 
- 
- 
- }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: black;
+}
 
  
  
