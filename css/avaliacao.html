@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>A Hipótese do Amor</title>
+ 
+    <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+ 
+    <!-- CABEÇALHO -->
+    <header>
+ 
+        <div class="topo">
+            <h2>📚 Minha Livraria</h2>
+ 
+            <div class="conta">
+                Olá, leitor(a)!<br>
+                <strong>Minha conta</strong>
+            </div>
+        </div>
+ 
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Livros</a>
+            <a href="#">Romance</a>
+            <a href="#">Mais vendidos</a>
+        </nav>
+ 
+    </header>
+ 
+ 
+    <!-- PESQUISA -->
+    <div class="pesquisa">
+ 
+        <input
+            type="text"
+            id="campoPesquisa"
+            placeholder="Pesquisar livros..."
+        >
+ 
+        <button onclick="pesquisarLivro()">🔍</button>
+ 
+    </div>
+ 
+ 
+    <!-- PRODUTO -->
+    <main>
+ 
+        <section class="produto">
+ 
+            <!-- CAPA -->
+            <div class="imagem-livro">
+ 
+                <img
+                    src="https://images.tcdn.com.br/img/img_prod/1266165/a_hipotese_do_amor_sucesso_do_tiktok_105_1_f6bde1c98f9cfcdac1f04aaa18f1447d.jpg"
+                    alt="Capa do livro A Hipótese do Amor"
+                >
+ 
+            </div>
+ 
+ 
+            <!-- INFORMAÇÕES -->
+            <div class="informacoes">
+ 
+                <h1>
+                    A Hipótese do Amor
+                </h1>
+ 
+                <h2 class="autor">
+                    Ali Hazelwood
+                </h2>
+ 
+ 
+                <!-- ESTRELAS -->
+                <div class="avaliacao">
+ 
+                    <span
+                        class="estrela"
+                        onclick="selecionarEstrela(1)"
+                    >★</span>
+ 
+                    <span
+                        class="estrela"
+                        onclick="selecionarEstrela(2)"
+                    >★</span>
+ 
+                    <span
+                        class="estrela"
+                        onclick="selecionarEstrela(3)"
+                    >★</span>
+ 
+                    <span
+                        class="estrela"
+                        onclick="selecionarEstrela(4)"
+                    >★</span>
+ 
+                    <span
+                        class="estrela"
+                        onclick="selecionarEstrela(5)"
+                    >★</span>
+ 
+                    <span id="nota">
+                        4,8 de 5
+                    </span>
+ 
+                </div>
+ 
+ 
+                <hr>
+ 
+ 
+                <!-- SINOPSE -->
+                <h2 class="titulo-sinopse">
+                    Sinopse
+                </h2>
+ 
+                <p class="sinopse">
+ 
+                    Olive Smith, uma estudante de doutorado em Biologia,
+                    acredita que o amor não é para ela. Depois de colocar
+                    sua melhor amiga em uma situação complicada, Olive decide
+                    fingir que está namorando o temido e arrogante professor
+                    Adam Carlsen.
+ 
+                    <br><br>
+ 
+                    O que começa como um relacionamento falso acaba ficando
+                    cada vez mais complicado quando Olive percebe que talvez
+                    seus sentimentos por Adam sejam mais reais do que ela
+                    imaginava.
+ 
+                </p>
+ 
+ 
+                <!-- PREÇO -->
+                <div class="preco">
+                    R$ 39,90
+                </div>
+ 
+                <p class="frete">
+                    Frete grátis para compras acima de R$ 50,00
+                </p>
+ 
+            </div>
+ 
+ 
+            <!-- CAIXA DE COMPRA -->
+            <div class="compra">
+ 
+                <h3>R$ 39,90</h3>
+ 
+                <p>
+                    Disponível
+                </p>
+ 
+                <p>
+                    Entrega rápida
+                </p>
+ 
+                <button class="botao-carrinho">
+                    Adicionar ao carrinho
+                </button>
+ 
+                <button class="botao-comprar">
+                    Comprar agora
+                </button>
+ 
+            </div>
+ 
+        </section>
+ 
+ 
+        <!-- SOBRE O LIVRO -->
+        <section class="sobre">
+ 
+            <h2>Sobre este livro</h2>
+ 
+            <p>
+                <strong>A Hipótese do Amor</strong> é um romance contemporâneo
+                que mistura comédia, ciência, romance e situações divertidas.
+                A história acompanha Olive e Adam enquanto eles tentam
+                descobrir se um relacionamento de mentira pode acabar se
+                transformando em algo verdadeiro.
+            </p>
+ 
+        </section>
+ 
+ 
+        <!-- INFORMAÇÕES -->
+        <section class="informacoes-livro">
+ 
+            <h2>Informações do livro</h2>
+ 
+            <p><strong>Autora:</strong> Ali Hazelwood</p>
+            <p><strong>Gênero:</strong> Romance</p>
+            <p><strong>Editora:</strong> Arqueiro</p>
+            <p><strong>Idioma:</strong> Português</p>
+ 
+        </section>
+ 
+ 
+        <!-- AVALIAÇÕES -->
+        <section class="avaliacoes">
+ 
+            <h2>Avaliações dos leitores</h2>
+ 
+ 
+            <!-- AVALIAÇÃO FICTÍCIA -->
+            <div class="review">
+ 
+                <div class="nome-review">
+                    Mariana
+                </div>
+ 
+                <div class="estrelas-review">
+                    ★★★★★
+                </div>
+ 
+                <h3>
+                    Um romance maravilhoso!
+                </h3>
+ 
+                <p>
+                    A história é muito divertida e os personagens são
+                    apaixonantes. Foi uma leitura muito gostosa!
+                </p>
+ 
+            </div>
+ 
+ 
+            <!-- AVALIAÇÃO FICTÍCIA -->
+            <div class="review">
+ 
+                <div class="nome-review">
+                    Laura
+                </div>
+ 
+                <div class="estrelas-review">
+                    ★★★★☆
+                </div>
+ 
+                <h3>
+                    Leitura leve e divertida
+                </h3>
+ 
+                <p>
+                    Gostei muito da dinâmica entre os personagens.
+                    Algumas partes me fizeram rir bastante.
+                </p>
+ 
+            </div>
+ 
+ 
+            <!-- AVALIAÇÃO FICTÍCIA -->
+            <div class="review">
+ 
+                <div class="nome-review">
+                    Sophia
+                </div>
+ 
+                <div class="estrelas-review">
+                    ★★★★★
+                </div>
+ 
+                <h3>
+                    Não queria terminar!
+                </h3>
+ 
+                <p>
+                    Amei o casal principal e fiquei completamente presa
+                    na história.
+                </p>
+ 
+            </div>
+ 
+ 
+            <!-- NOVAS AVALIAÇÕES -->
+            <div id="novasAvaliacoes"></div>
+ 
+ 
+        </section>
+ 
+ 
+        <!-- FORMULÁRIO -->
+        <section class="nova-avaliacao">
+ 
+            <h2>
+                Compartilhe sua avaliação
+            </h2>
+ 
+            <p>
+                O que você achou de A Hipótese do Amor?
+            </p>
+ 
+ 
+            <!-- ESCOLHER ESTRELAS -->
+            <div class="escolher-estrelas">
+ 
+                <span
+                    class="estrela-escolha"
+                    onclick="escolherNota(1)"
+                >★</span>
+ 
+                <span
+                    class="estrela-escolha"
+                    onclick="escolherNota(2)"
+                >★</span>
+ 
+                <span
+                    class="estrela-escolha"
+                    onclick="escolherNota(3)"
+                >★</span>
+ 
+                <span
+                    class="estrela-escolha"
+                    onclick="escolherNota(4)"
+                >★</span>
+ 
+                <span
+                    class="estrela-escolha"
+                    onclick="escolherNota(5)"
+                >★</span>
+ 
+            </div>
+ 
+ 
+            <input
+                type="text"
+                id="nome"
+                placeholder="Seu nome"
+            >
+ 
+ 
+            <input
+                type="text"
+                id="titulo"
+                placeholder="Título da avaliação"
+            >
+ 
+ 
+            <textarea
+                id="textoAvaliacao"
+                placeholder="Escreva sua avaliação..."
+            ></textarea>
+ 
+ 
+            <button
+                class="botao-publicar"
+                onclick="publicarAvaliacao()"
+            >
+                Publicar avaliação
+            </button>
+ 
+        </section>
+ 
+    </main>
+ 
+ 
+    <!-- RODAPÉ -->
+    <footer>
+ 
+        <p>
+            © 2026 Minha Livraria | Projeto escolar
+        </p>
+ 
+    </footer>
+ 
+ 
+ 
+    <!-- JAVASCRIPT -->
+    <script>
+ 
+        /* =========================
+           ESTRELAS DO LIVRO
+        ========================= */
+ 
+        let notaLivro = 0;
+ 
+        function selecionarEstrela(nota) {
+ 
+            notaLivro = nota;
+ 
+            const estrelas =
+                document.querySelectorAll(".estrela");
+ 
+            estrelas.forEach((estrela, index) => {
+ 
+                if (index < nota) {
+                    estrela.classList.add("selecionada");
+                } else {
+                    estrela.classList.remove("selecionada");
+                }
+ 
+            });
+ 
+            document.getElementById("nota").innerText =
+                nota + " de 5";
+ 
+        }
+ 
+ 
+ 
+        /* =========================
+           ESTRELAS DA AVALIAÇÃO
+        ========================= */
+ 
+        let notaEscolhida = 0;
+ 
+ 
+        function escolherNota(nota) {
+ 
+            notaEscolhida = nota;
+ 
+            const estrelas =
+                document.querySelectorAll(".estrela-escolha");
+ 
+            estrelas.forEach((estrela, index) => {
+ 
+                if (index < nota) {
+ 
+                    estrela.classList.add("selecionada");
+ 
+                } else {
+ 
+                    estrela.classList.remove("selecionada");
+ 
+                }
+ 
+            });
+ 
+        }
+ 
+ 
+ 
+        /* =========================
+           CARREGAR AVALIAÇÕES
+        ========================= */
+ 
+        let avaliacoes =
+            JSON.parse(
+                localStorage.getItem("avaliacoesLivro")
+            ) || [];
+ 
+ 
+        function mostrarAvaliacoes() {
+ 
+            const container =
+                document.getElementById("novasAvaliacoes");
+ 
+            container.innerHTML = "";
+ 
+ 
+            avaliacoes.forEach((avaliacao) => {
+ 
+                const div =
+                    document.createElement("div");
+ 
+                div.className = "review nova-review";
+ 
+ 
+                let estrelas = "";
+ 
+                for (
+                    let i = 1;
+                    i <= 5;
+                    i++
+                ) {
+ 
+                    if (i <= avaliacao.nota) {
+ 
+                        estrelas += "★";
+ 
+                    } else {
+ 
+                        estrelas += "☆";
+ 
+                    }
+ 
+                }
+ 
+ 
+                div.innerHTML = `
+ 
+                    <div class="nome-review">
+                        ${avaliacao.nome}
+                    </div>
+ 
+                    <div class="estrelas-review">
+                        ${estrelas}
+                    </div>
+ 
+                    <h3>
+                        ${avaliacao.titulo}
+                    </h3>
+ 
+                    <p>
+                        ${avaliacao.texto}
+                    </p>
+ 
+                ;
