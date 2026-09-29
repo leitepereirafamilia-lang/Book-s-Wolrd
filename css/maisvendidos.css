@@ -1,235 +1,350 @@
-#lista-livros {
-    width: 90%;
-    max-width: 1500px;
+/* =========================
+   PÁGINA MAIS VENDIDOS
+========================= */
 
-    margin: 40px auto 80px;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 30px;
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #fcfcfc;
+    color: #1c2636;
+}
 
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    width: 100%;
+    min-height: 95px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+    padding: 20px 3%;
+    position: relative;
+    z-index: 10;
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: clamp(12px, 2vw, 35px);
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo img {
+    width: clamp(100px, 10vw, 145px);
+    height: auto;
+    display: block;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: clamp(13px, 1.2vw, 16px);
+    white-space: nowrap;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+main {
+    width: 100%;
+    padding: 50px 5% 80px;
+}
+
+main h1 {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 4vw, 50px);
+    font-weight: 500;
+    color: #1c2636;
+    margin: 20px 0 50px;
+}
+
+/* =========================
+   LISTA DE LIVROS
+========================= */
+
+#lista-livros {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+/* =========================
+   CARD DO LIVRO
+========================= */
 
 .card-livro {
+    position: relative;
+
     background-color: white;
+    border-radius: 15px;
 
-    min-height: 350px;
+    padding: 20px;
 
-    padding: 25px;
+    min-height: 500px;
 
-    border-radius: 20px;
-
-    border: 1px solid rgba(220, 198, 167, 0.5);
-
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 
     display: flex;
     flex-direction: column;
 
-    transition: 0.3s ease;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
 }
-
 
 .card-livro:hover {
     transform: translateY(-8px);
 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
 }
 
+/* =========================
+   ESPAÇO PARA IMAGEM
+========================= */
+
+.card-livro::before {
+    content: "";
+
+    width: 100%;
+    height: 270px;
+
+    display: block;
+
+    background-color: #f1f1f1;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    background-image: url("../img/livro-sem-capa.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*
+   Se você tiver as imagens das capas,
+   podemos colocar a imagem diretamente
+   no HTML depois.
+*/
+
+/* =========================
+   SELO MAIS VENDIDO
+========================= */
 
 .selo-mais-vendido {
-    align-self: flex-start;
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
 
     background-color: #1c2636;
-
     color: white;
 
     padding: 7px 12px;
 
-    border-radius: 20px;
+    border-radius: 5px;
 
     font-size: 11px;
-
     font-weight: bold;
 
-    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+
+    z-index: 2;
 }
 
-
-
+/* =========================
+   TÍTULO DO LIVRO
+========================= */
 
 .card-livro h2 {
-    font-family: 'Judson', Georgia, serif;
+    margin: 5px 0 10px;
 
-    font-size: 24px;
+    font-family: Georgia, serif;
 
+    font-size: 21px;
     line-height: 1.3;
 
     color: #1c2636;
-
-    margin: 0 0 15px;
 }
 
-
-
+/* =========================
+   AUTOR
+========================= */
 
 .card-livro .autor {
+    margin: 5px 0;
+
     color: #555;
 
     font-size: 14px;
-
-    line-height: 1.5;
-
-    margin: 6px 0;
 }
 
-
-
+/* =========================
+   CATEGORIA
+========================= */
 
 .card-livro .categoria {
-    display: inline-block;
+    margin: 5px 0;
 
-    color: #1c2636;
+    color: #777;
 
     font-size: 13px;
-
-    font-weight: bold;
-
-    background-color: rgba(220, 198, 167, 1);
-
-    border-radius: 15px;
-
-    padding: 6px 10px;
-
-    width: fit-content;
-
-    margin: 10px 0;
 }
 
-
-
+/* =========================
+   PREÇO
+========================= */
 
 .card-livro .preco {
-    color: #1c2636;
+    margin: 15px 0;
 
-    font-size: 23px;
+    font-size: 22px;
 
     font-weight: bold;
 
-    margin-top: auto;
-
-    margin-bottom: 20px;
+    color: #1c2636;
 }
 
-
+/* =========================
+   BOTÃO
+========================= */
 
 .card-livro button {
     width: 100%;
 
-    min-height: 42px;
+    margin-top: auto;
+
+    padding: 13px 10px;
 
     border: none;
-
-    border-radius: 10px;
+    border-radius: 8px;
 
     background-color: #1c2636;
 
     color: white;
 
     font-size: 14px;
-
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: 0.25s ease;
+    transition: background-color 0.3s ease,
+                transform 0.2s ease;
 }
 
-
-
-
 .card-livro button:hover {
-    background-color: rgba(66, 98, 151, 1);
+    background-color: #426297;
 
     transform: scale(1.02);
 }
 
+/* =========================
+   TABLET
+========================= */
 
+@media (max-width: 1000px) {
 
-
-@media (max-width: 1100px) {
-
-    #lista-livros {
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 25px;
+    header {
+        padding: 15px 3%;
     }
 
-}
-
-
-
-@media (max-width: 800px) {
+    nav ul {
+        gap: 15px;
+    }
 
     #lista-livros {
         grid-template-columns: repeat(2, 1fr);
-
-        gap: 20px;
-    }
-
-}
-
-
-
-@media (max-width: 600px) {
-
-    #lista-livros {
-        width: 90%;
-
-        grid-template-columns: 1fr;
-
-        gap: 20px;
+        gap: 25px;
     }
 
     .card-livro {
-        min-height: 320px;
-
-        padding: 22px;
+        min-height: 480px;
     }
 
-    .card-livro h2 {
-        font-size: 22px;
+    .card-livro::before {
+        height: 250px;
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: auto;
+        padding: 15px;
     }
 
-}
-main h1 {
-    font-family: 'Judson', Georgia, serif;
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
 
-    font-size: clamp(40px, 5vw, 64px);
+    .logo img {
+        width: 130px;
+    }
 
-    font-weight: 500;
+    nav a {
+        font-size: 15px;
+    }
 
-    color: #1c2636;
+    main {
+        padding: 35px 20px 60px;
+    }
 
-    text-align: center;
+    main h1 {
+        font-size: 34px;
+        margin-bottom: 35px;
+    }
 
-    margin: 60px 0 20px;
-}
+    #lista-livros {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
 
-main h1::after {
-    content: "";
+    .card-livro {
+        width: 100%;
+        min-height: 500px;
+    }
 
-    display: block;
-
-    width: 90px;
-    height: 4px;
-
-    background-color: rgba(220, 198, 167, 1);
-
-    border-radius: 10px;
-
-    margin: 15px auto 0;
+    .card-livro::before {
+        height: 280px;
+    }
 }

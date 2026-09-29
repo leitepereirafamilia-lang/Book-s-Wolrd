@@ -64,6 +64,84 @@
     </nav>
 </header>
  
+<!-- =========================
+     BANNER DE ANÚNCIOS
+========================= -->
+ 
+<section class="banner-anuncios">
+ 
+    <div class="banner-container">
+ 
+        <div class="banner-track" id="bannerTrack">
+ 
+            <!-- BANNER 1 -->
+            <a href="promocoes.html" class="banner-slide">
+                <img
+                    src="IMG/banner1.jpg"
+                    alt="Kit pré-venda Carmilla"
+                >
+            </a>
+ 
+            <!-- BANNER 2 -->
+            <a href="lancamentos.html" class="banner-slide">
+                <img
+                    src="IMG/banner2.jpg"
+                    alt="Lançamento Harry Potter"
+                >
+            </a>
+ 
+            <!-- BANNER 3 -->
+            <a href="promocoes.html" class="banner-slide">
+                <img
+                    src="IMG/banner3.jpgs"
+                    alt="Promoções Book's World"
+                >
+            </a>
+ 
+        </div>
+ 
+        <!-- BOTÃO ESQUERDA -->
+        <button
+            class="banner-btn banner-anterior"
+            onclick="mudarBanner(-1)"
+            aria-label="Banner anterior"
+        >
+            &#10094;
+        </button>
+ 
+        <!-- BOTÃO DIREITA -->
+        <button
+            class="banner-btn banner-proximo"
+            onclick="mudarBanner(1)"
+            aria-label="Próximo banner"
+        >
+            &#10095;
+        </button>
+ 
+    </div>
+ 
+    <!-- BOLINHAS -->
+    <div class="banner-indicadores">
+ 
+        <button
+            class="indicador ativo"
+            onclick="irParaBanner(0)"
+        ></button>
+ 
+        <button
+            class="indicador"
+            onclick="irParaBanner(1)"
+        ></button>
+ 
+        <button
+            class="indicador"
+            onclick="irParaBanner(2)"
+        ></button>
+ 
+    </div>
+ 
+</section>
+ 
 <div class="fundo">
  
     <div class="retangulo2">
@@ -153,7 +231,7 @@
 <div class="mais-vendidos">
     <p>Mais vendidos</p>
 </div>
- 
+ <script src="js/banner.js"></script>
  
 </body>
  
