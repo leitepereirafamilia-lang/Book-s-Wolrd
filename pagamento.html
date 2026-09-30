@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pagamento | BooksWorld</title>
+
+    <link rel="stylesheet" href="css/pagamento.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+   <header>
+
+    <nav>
+
+        <ul>
+
+            <li class="logo">
+                <img
+                    src="a_clean_transparent_background_logo_graphic_file_c.png"
+                    alt="Book's World"
+                >
+            </li>
+
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="#">Generos</a>
+            </li>
+
+            <li>
+                <a href="#">Autores</a>
+            </li>
+
+            <li>
+                <a href="#">Promocoes</a>
+            </li>
+
+            <li>
+                <a href="#">Mais vendidos</a>
+            </li>
+
+            <li class="pesquisa">
+
+                <div class="barra-pesquisa">
+
+                    <input
+                        type="text"
+                        placeholder="Buscar livros, autores..."
+                    >
+
+                    <button>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="17"
+                            height="17"
+                        >
+
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="7"
+                                fill="none"
+                                stroke="#333"
+                                stroke-width="1.5"
+                            />
+
+                            <line
+                                x1="16"
+                                y1="16"
+                                x2="21"
+                                y2="21"
+                                stroke="#333"
+                                stroke-width="1.5"
+                            />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </li>
+
+            <li>
+                <a href="#">Minha conta</a>
+            </li>
+
+            <li>
+                <a href="carrinho.html">
+                    Meu carrinho
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <nav>
+
+        <ul>
+
+            <li class="logo">
+                <img
+                    src="a_clean_transparent_background_logo_graphic_file_c.png"
+                    alt="Book's World"
+                >
+            </li>
+
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="#">Generos</a>
+            </li>
+
+            <li>
+                <a href="#">Autores</a>
+            </li>
+
+            <li>
+                <a href="#">Promocoes</a>
+            </li>
+
+            <li>
+                <a href="#">Mais vendidos</a>
+            </li>
+
+            <li class="pesquisa">
+
+                <div class="barra-pesquisa">
+
+                    <input
+                        type="text"
+                        placeholder="Buscar livros, autores..."
+                    >
+
+                    <button>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="17"
+                            height="17"
+                        >
+
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="7"
+                                fill="none"
+                                stroke="#333"
+                                stroke-width="1.5"
+                            />
+
+                            <line
+                                x1="16"
+                                y1="16"
+                                x2="21"
+                                y2="21"
+                                stroke="#333"
+                                stroke-width="1.5"
+                            />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </li>
+
+            <li>
+                <a href="#">Minha conta</a>
+            </li>
+
+            <li>
+                <a href="carrinho.html">
+                    Meu carrinho
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+    <main class="pagina">
+
+        <!-- CAMINHO -->
+        <div class="breadcrumb">
+            <a href="carrinho.html">Carrinho</a>
+            <span>›</span>
+            <strong>Pagamento</strong>
+        </div>
+
+
+        <!-- TÍTULO -->
+        <div class="titulo">
+
+            <h1>Pagamento</h1>
+
+            <p>
+                Confira os dados do seu pedido e escolha a forma de pagamento.
+            </p>
+
+        </div>
+
+
+        <!-- ÁREA PRINCIPAL -->
+        <div class="checkout">
+
+
+            <!-- PAGAMENTO -->
+            <section class="area-pagamento">
+
+                <!-- ENTREGA -->
+                <div class="card">
+
+                    <div class="titulo-card">
+
+                        <span>🚚</span>
+
+                        <h2>Informações de entrega</h2>
+
+                        <button class="alterar" type="button">
+                            Alterar dados
+                        </button>
+
+                    </div>
+
+                    <div class="dados-entrega">
+
+                        <strong>Maria Eduarda Silva</strong>
+
+                        <span>
+                            Rua das Flores, 123 - Centro
+                        </span>
+
+                        <span>
+                            São Paulo - SP • 01000-000
+                        </span>
+
+                        <span>
+                            (11) 98765-4321
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMAS DE PAGAMENTO -->
+                <div class="card">
+
+                    <div class="titulo-card">
+
+                        <span>💳</span>
+
+                        <h2>Forma de pagamento</h2>
+
+                    </div>
+
+
+                    <div class="metodos">
+
+                        <button
+                            type="button"
+                            class="metodo"
+                            onclick="mostrarPix()">
+
+                            <span>▦</span>
+
+                            PIX
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="metodo"
+                            onclick="mostrarCredito()">
+
+                            <span>💳</span>
+
+                            Crédito
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="metodo"
+                            onclick="mostrarDebito()">
+
+                            <span>💳</span>
+
+                            Débito
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- O JAVASCRIPT COLOCA OS FORMULÁRIOS AQUI -->
+
+                    <div id="pix"></div>
+
+                    <div id="credito"></div>
+
+                    <div id="debito"></div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- RESUMO -->
+            <aside class="resumo">
+
+                <div class="resumo-card">
+
+                    <div class="resumo-titulo">
+
+                        <h2>🛍 Seu pedido</h2>
+
+                        <span id="quantidade-pedido">
+                            (0 itens)
+                        </span>
+
+                    </div>
+
+
+                    <!-- PRODUTOS -->
+                    <div id="itens-resumo">
+
+                        <p>Carregando pedido...</p>
+
+                    </div>
+
+
+                    <!-- VALORES -->
+                    <div class="valores">
+
+                        <div>
+                            <span>Subtotal</span>
+
+                            <strong id="subtotal-resumo">
+                                R$ 0,00
+                            </strong>
+                        </div>
+
+
+                        <div>
+                            <span>Frete</span>
+
+                            <strong>
+                                R$ 9,90
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+                    <div class="total">
+
+                        <span>Total</span>
+
+                        <strong id="total-resumo">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <!-- SEGURANÇA -->
+                    <div class="seguro">
+
+                        <span>🛡️</span>
+
+                        <div>
+
+                            <strong>
+                                Compra segura
+                            </strong>
+
+                            <small>
+                                Seus dados estão protegidos e criptografados.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="carrinho.html"
+                        class="voltar">
+
+                        ← Continuar comprando
+
+                    </a>
+
+                </div>
+
+
+                <div class="frase">
+
+                    📚
+
+                    <strong>
+                        Grandes histórias
+                        <br>
+                        começam com um
+                        <br>
+                        simples clique.
+                    </strong>
+
+                    ❤️
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <div>
+            <strong>📖 Book's World</strong>
+
+            <p>
+                Aqui você encontra histórias que
+                inspiram, emocionam e transformam.
+            </p>
+        </div>
+
+
+        <div>
+
+            <strong>Institucional</strong>
+
+            <a href="#">Sobre Nós</a>
+
+            <a href="#">Política de Privacidade</a>
+
+            <a href="#">Termos de Uso</a>
+
+        </div>
+
+
+        <div>
+
+            <strong>Ajuda</strong>
+
+            <a href="#">Central de Ajuda</a>
+
+            <a href="#">Trocas e Devoluções</a>
+
+            <a href="#">Formas de Pagamento</a>
+
+        </div>
+
+
+        <div>
+
+            <strong>Siga-nos</strong>
+
+            <p>●　●　●</p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SEU JAVASCRIPT -->
+    <script src="js/pagamento.js"></script>
+
+
+    <!-- RESUMO DO CARRINHO -->
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const carrinho =
+                JSON.parse(localStorage.getItem("carrinho")) || [];
+
+            const selecionados =
+                JSON.parse(localStorage.getItem("selecionados")) || [];
+
+
+            const itens = carrinho.filter(item =>
+                selecionados.includes(item.livro.id)
+            );
+
+
+            const lista =
+                document.getElementById("itens-resumo");
+
+            const quantidade =
+                document.getElementById("quantidade-pedido");
+
+            const subtotal =
+                document.getElementById("subtotal-resumo");
+
+            const total =
+                document.getElementById("total-resumo");
+
+
+            lista.innerHTML = "";
+
+
+            let valorTotal = 0;
+
+            let quantidadeTotal = 0;
+
+
+            if (itens.length === 0) {
+
+                lista.innerHTML =
+                    "<p>Nenhum item selecionado.</p>";
+
+            }
+
+
+            itens.forEach(item => {
+
+                const preco =
+                    Number(item.livro.preco) || 0;
+
+                const valor =
+                    preco * item.quantidade;
+
+
+                valorTotal += valor;
+
+                quantidadeTotal += item.quantidade;
+
+
+                lista.innerHTML += `
+
+                    <div class="item">
+
+                        <div class="capa">
+                            📖
+                        </div>
+
+                        <div class="dados-livro">
+
+                            <strong>
+                                ${item.livro.titulo}
+                            </strong>
+
+                            <small>
+                                ${item.livro.autor || ""}
+                            </small>
+
+                            <small>
+                                Quantidade: ${item.quantidade}
+                            </small>
+
+                        </div>
+
+                        <strong class="preco">
+                            R$ ${valor
+                                .toFixed(2)
+                                .replace(".", ",")}
+                        </strong>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            const frete =
+                itens.length > 0 ? 9.90 : 0;
+
+
+            const valorFinal =
+                valorTotal + frete;
+
+
+            quantidade.textContent =
+                `(${quantidadeTotal} ${
+                    quantidadeTotal === 1
+                        ? "item"
+                        : "itens"
+                })`;
+
+
+            subtotal.textContent =
+                `R$ ${valorTotal
+                    .toFixed(2)
+                    .replace(".", ",")}`;
+
+
+            total.textContent =
+                `R$ ${valorFinal
+                    .toFixed(2)
+                    .replace(".", ",")}`;
+
+        });
+
+    </script>
+
+</body>
+
+</html>

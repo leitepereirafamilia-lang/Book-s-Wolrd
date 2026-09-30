@@ -9,20 +9,24 @@ livros.sort(() => Math.random() - 0.5);
 livros.forEach(livro => {
 
     listaLivros.innerHTML += `
-        <div>
+        <div class="card">
+
             <h2>${livro.titulo}</h2>
 
             <p>Autor: ${livro.autor}</p>
+
             <p>Categoria: ${livro.categoria}</p>
-            <p>Preço: R$ ${livro.preco}</p>
+
+            <p>R$ ${livro.preco.toFixed(2)}</p>
 
             <button onclick="adicionarCarrinho(${livro.id})">
                 Adicionar ao carrinho
             </button>
+
         </div>
     `;
-
 });
+
 
 function adicionarCarrinho(id) {
 
