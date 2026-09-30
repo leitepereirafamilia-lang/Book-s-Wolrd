@@ -5,501 +5,1479 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
-    <title>A Hipótese do Amor</title>
+    <title>Book´s World | A Hipótese do Amor</title>
  
-    <link rel="stylesheet" href="style.css">
+    <style>
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+ 
+        body {
+            background: #ffffff;
+            color: #222;
+        }
+ 
+        /* =========================
+           CABEÇALHO
+        ========================== */
+ 
+        header {
+            width: 100%;
+            background: #17212b;
+            color: white;
+            padding: 15px 35px;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+ 
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 29px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+ 
+        .logo span {
+            color: #d4a24c;
+        }
+ 
+        .search {
+            flex: 1;
+            display: flex;
+            height: 43px;
+            max-width: 750px;
+        }
+ 
+        .search input {
+            flex: 1;
+            border: none;
+            padding: 0 18px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 6px 0 0 6px;
+        }
+ 
+        .search button {
+            width: 55px;
+            border: none;
+            background: #d4a24c;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 0 6px 6px 0;
+        }
+ 
+        .search button:hover {
+            background: #c28f36;
+        }
+ 
+        .menu {
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+ 
+ 
+        /* =========================
+           NAVEGAÇÃO
+        ========================== */
+ 
+        nav {
+            border-bottom: 1px solid #ddd;
+            padding: 12px 40px;
+            font-size: 14px;
+            color: #555;
+        }
+ 
+        nav span {
+            color: #a06c16;
+        }
+ 
+ 
+        /* =========================
+           CONTAINER
+        ========================== */
+ 
+        .container {
+            max-width: 1200px;
+            margin: 35px auto;
+            padding: 0 25px;
+        }
+ 
+ 
+        /* =========================
+           PRODUTO
+        ========================== */
+ 
+        .produto {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 55px;
+        }
+ 
+        .imagem-area {
+            text-align: center;
+        }
+ 
+        .capa {
+            width: 270px;
+            height: 410px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+        }
+ 
+        .favorito {
+            margin-top: 20px;
+            border: 1px solid #bbb;
+            background: white;
+            border-radius: 25px;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+ 
+        .favorito:hover {
+            background: #faf5eb;
+        }
+ 
+ 
+        /* =========================
+           INFORMAÇÕES
+        ========================== */
+ 
+        .titulo {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+ 
+        .autor {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+ 
+        .autor a {
+            color: #a06c16;
+            text-decoration: none;
+        }
+ 
+        .autor a:hover {
+            text-decoration: underline;
+        }
+ 
+        .avaliacao-geral {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+ 
+        .estrelas {
+            color: #f5a623;
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+ 
+        .nota {
+            font-size: 16px;
+            color: #555;
+        }
+ 
+        .linha {
+            height: 1px;
+            background: #ddd;
+            margin: 22px 0;
+        }
+ 
+        .descricao-curta {
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+ 
+        .destaque {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+ 
+ 
+        /* =========================
+           INFORMAÇÕES DO LIVRO
+        ========================== */
+ 
+        .informacoes {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            max-width: 650px;
+        }
+ 
+        .info {
+            padding: 12px;
+            background: #f8f8f8;
+            border-radius: 5px;
+        }
+ 
+        .info strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+ 
+ 
+        /* =========================
+           SINOPSE
+        ========================== */
+ 
+        .secao {
+            margin-top: 60px;
+            border-top: 1px solid #ddd;
+            padding-top: 30px;
+        }
+ 
+        .secao h2 {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+ 
+        .sinopse {
+            max-width: 900px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #444;
+        }
+ 
+ 
+        /* =========================
+           AVALIAÇÕES
+        ========================== */
+ 
+        .avaliacoes-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+        }
+ 
+        .resumo {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+ 
+        .nota-grande {
+            font-size: 45px;
+            font-weight: bold;
+        }
+ 
+        .barra {
+            margin-top: 18px;
+        }
+ 
+        .barra-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+ 
+        .barra-fundo {
+            flex: 1;
+            height: 8px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+ 
+        .barra-preenchida {
+            height: 100%;
+            background: #f5a623;
+        }
+ 
+ 
+        /* =========================
+           FORMULÁRIO
+        ========================== */
+ 
+        .form-avaliacao {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+ 
+        .form-avaliacao h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+ 
+        .estrelas-form {
+            display: flex;
+            gap: 4px;
+            margin: 12px 0 20px;
+        }
+ 
+        .estrela {
+            font-size: 32px;
+            color: #ccc;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+ 
+        .estrela:hover,
+        .estrela.selecionada {
+            color: #f5a623;
+        }
+ 
+        .form-avaliacao input,
+        .form-avaliacao textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            font-size: 15px;
+            outline: none;
+        }
+ 
+        .form-avaliacao textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+ 
+        .form-avaliacao input:focus,
+        .form-avaliacao textarea:focus {
+            border-color: #a06c16;
+        }
+ 
+        .publicar {
+            background: #17212b;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+ 
+        .publicar:hover {
+            background: #273746;
+        }
+ 
+ 
+        /* =========================
+           AVALIAÇÕES
+        ========================== */
+ 
+        .review {
+            border-bottom: 1px solid #ddd;
+            padding: 25px 0;
+        }
+ 
+        .review:last-child {
+            border-bottom: none;
+        }
+ 
+        .usuario {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+ 
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #e9d8b7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #704d19;
+        }
+ 
+        .nome {
+            font-weight: bold;
+        }
+ 
+        .data {
+            font-size: 13px;
+            color: #777;
+        }
+ 
+        .review-estrelas {
+            color: #f5a623;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+ 
+        .review h4 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+ 
+        .review p {
+            line-height: 1.6;
+            color: #444;
+        }
+ 
+        .minha-review {
+            background: #faf5eb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+ 
+        .excluir {
+            margin-top: 12px;
+            border: none;
+            background: transparent;
+            color: #b00020;
+            cursor: pointer;
+            padding: 0;
+        }
+ 
+        .excluir:hover {
+            text-decoration: underline;
+        }
+ 
+ 
+        /* =========================
+           RODAPÉ
+        ========================== */
+ 
+        footer {
+            margin-top: 70px;
+            background: #17212b;
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
+ 
+        footer h3 {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+ 
+        footer p {
+            color: #ccc;
+        }
+ 
+ 
+        /* =========================
+           RESPONSIVO
+        ========================== */
+ 
+        @media (max-width: 800px) {
+ 
+            header {
+                flex-wrap: wrap;
+                padding: 15px;
+            }
+ 
+            .menu {
+                display: none;
+            }
+ 
+            .produto {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+ 
+            .descricao-curta {
+                margin: auto;
+            }
+ 
+            .informacoes {
+                margin: 25px auto;
+            }
+ 
+            .avaliacoes-container {
+                grid-template-columns: 1fr;
+            }
+ 
+            .titulo {
+                font-size: 30px;
+            }
+ 
+            nav {
+                padding: 12px 20px;
+            }
+        }
+ 
+ 
+        @media (max-width: 500px) {
+ 
+            .capa {
+                width: 230px;
+                height: 350px;
+            }
+ 
+            .informacoes {
+                grid-template-columns: 1fr;
+            }
+ 
+            .container {
+                padding: 0 15px;
+            }
+ 
+            .form-avaliacao {
+                padding: 18px;
+            }
+        }
+ 
+    </style>
 </head>
+ 
  
 <body>
  
-    <!-- CABEÇALHO -->
+ 
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+ 
     <header>
  
-        <div class="topo">
-            <h2>📚 Minha Livraria</h2>
- 
-            <div class="conta">
-                Olá, leitor(a)!<br>
-                <strong>Minha conta</strong>
-            </div>
+        <div class="logo">
+            Book<span>´s</span> World
         </div>
  
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Livros</a>
-            <a href="#">Romance</a>
-            <a href="#">Mais vendidos</a>
-        </nav>
+        <div class="search">
+ 
+            <input
+                type="text"
+                id="pesquisa"
+                placeholder="Pesquisar livros, autores..."
+                onkeydown="verificarEnter(event)"
+            >
+ 
+            <button onclick="pesquisar()">
+                🔍
+            </button>
+ 
+        </div>
+ 
+        <div class="menu">
+ 
+            <span>
+                Meu Carrinho
+            </span>
+ 
+            <span>
+                Favoritos
+            </span>
+ 
+        </div>
  
     </header>
  
  
-    <!-- PESQUISA -->
-    <div class="pesquisa">
+    <!-- =========================
+         NAVEGAÇÃO
+    ========================== -->
  
-        <input
-            type="text"
-            id="campoPesquisa"
-            placeholder="Pesquisar livros..."
-        >
+    <nav>
  
-        <button onclick="pesquisarLivro()">🔍</button>
+        Início › Livros › Romance ›
  
-    </div>
+        <span>
+            A Hipótese do Amor
+        </span>
+ 
+    </nav>
  
  
-    <!-- PRODUTO -->
-    <main>
+    <!-- =========================
+         CONTEÚDO
+    ========================== -->
+ 
+    <main class="container">
+ 
+ 
+        <!-- =========================
+             PRODUTO
+        ========================== -->
  
         <section class="produto">
  
-            <!-- CAPA -->
-            <div class="imagem-livro">
+ 
+            <!-- IMAGEM -->
+ 
+            <div class="imagem-area">
  
                 <img
-                    src="https://images.tcdn.com.br/img/img_prod/1266165/a_hipotese_do_amor_sucesso_do_tiktok_105_1_f6bde1c98f9cfcdac1f04aaa18f1447d.jpg"
+                    class="capa"
+                    src="https://i.pinimg.com/736x/2a/83/99/2a8399ed8edd8265158453993998cf3b.jpg"
                     alt="Capa do livro A Hipótese do Amor"
                 >
+ 
+                <br>
+ 
+                <button
+                    class="favorito"
+                    onclick="favoritar()"
+                    id="botaoFavorito"
+                >
+ 
+                    ♡ Adicionar aos favoritos
+ 
+                </button>
  
             </div>
  
  
             <!-- INFORMAÇÕES -->
-            <div class="informacoes">
  
-                <h1>
+            <div>
+ 
+                <h1 class="titulo">
                     A Hipótese do Amor
                 </h1>
  
-                <h2 class="autor">
-                    Ali Hazelwood
-                </h2>
+                <div class="autor">
+ 
+                    por
+                    <a href="#">
+                        Ali Hazelwood
+                    </a>
+ 
+                </div>
  
  
-                <!-- ESTRELAS -->
-                <div class="avaliacao">
+                <div class="avaliacao-geral">
  
-                    <span
-                        class="estrela"
-                        onclick="selecionarEstrela(1)"
-                    >★</span>
+                    <span class="estrelas">
+                        ★★★★★
+                    </span>
  
-                    <span
-                        class="estrela"
-                        onclick="selecionarEstrela(2)"
-                    >★</span>
- 
-                    <span
-                        class="estrela"
-                        onclick="selecionarEstrela(3)"
-                    >★</span>
- 
-                    <span
-                        class="estrela"
-                        onclick="selecionarEstrela(4)"
-                    >★</span>
- 
-                    <span
-                        class="estrela"
-                        onclick="selecionarEstrela(5)"
-                    >★</span>
- 
-                    <span id="nota">
+                    <span class="nota">
                         4,8 de 5
+                    </span>
+ 
+                    <span class="nota">
+                        · 29.272 avaliações
                     </span>
  
                 </div>
  
  
-                <hr>
+                <div class="linha"></div>
  
  
-                <!-- SINOPSE -->
-                <h2 class="titulo-sinopse">
-                    Sinopse
-                </h2>
+                <p class="destaque">
  
-                <p class="sinopse">
- 
-                    Olive Smith, uma estudante de doutorado em Biologia,
-                    acredita que o amor não é para ela. Depois de colocar
-                    sua melhor amiga em uma situação complicada, Olive decide
-                    fingir que está namorando o temido e arrogante professor
-                    Adam Carlsen.
- 
-                    <br><br>
- 
-                    O que começa como um relacionamento falso acaba ficando
-                    cada vez mais complicado quando Olive percebe que talvez
-                    seus sentimentos por Adam sejam mais reais do que ela
-                    imaginava.
+                    O livro que conquistou leitores ao redor
+                    do mundo.
  
                 </p>
  
  
-                <!-- PREÇO -->
-                <div class="preco">
-                    R$ 39,90
+                <p class="descricao-curta">
+ 
+                    Quando um namoro de mentira entre cientistas
+                    encontra a irresistível força da atração,
+                    todas as teorias cuidadosamente calculadas
+                    sobre o amor são colocadas à prova.
+ 
+                </p>
+ 
+ 
+                <div class="informacoes">
+ 
+ 
+                    <div class="info">
+ 
+                        <strong>
+                            Autora
+                        </strong>
+ 
+                        Ali Hazelwood
+ 
+                    </div>
+ 
+ 
+                    <div class="info">
+ 
+                        <strong>
+                            Gênero
+                        </strong>
+ 
+                        Romance / Comédia romântica
+ 
+                    </div>
+ 
+ 
+                    <div class="info">
+ 
+                        <strong>
+                            Idioma
+                        </strong>
+ 
+                        Português
+ 
+                    </div>
+ 
+ 
+                    <div class="info">
+ 
+                        <strong>
+                            Formato
+                        </strong>
+ 
+                        Livro físico
+ 
+                    </div>
+ 
+ 
+                    <div class="info">
+ 
+                        <strong>
+                            Páginas
+                        </strong>
+ 
+                        336 páginas
+ 
+                    </div>
+ 
+ 
+                    <div class="info">
+ 
+                        <strong>
+                            Editora
+                        </strong>
+ 
+                        Arqueiro
+ 
+                    </div>
+ 
+ 
                 </div>
- 
-                <p class="frete">
-                    Frete grátis para compras acima de R$ 50,00
-                </p>
- 
-            </div>
- 
- 
-            <!-- CAIXA DE COMPRA -->
-            <div class="compra">
- 
-                <h3>R$ 39,90</h3>
- 
-                <p>
-                    Disponível
-                </p>
- 
-                <p>
-                    Entrega rápida
-                </p>
- 
-                <button class="botao-carrinho">
-                    Adicionar ao carrinho
-                </button>
- 
-                <button class="botao-comprar">
-                    Comprar agora
-                </button>
  
             </div>
  
         </section>
  
  
-        <!-- SOBRE O LIVRO -->
-        <section class="sobre">
  
-            <h2>Sobre este livro</h2>
+        <!-- =========================
+             SOBRE O LIVRO
+        ========================== -->
  
-            <p>
-                <strong>A Hipótese do Amor</strong> é um romance contemporâneo
-                que mistura comédia, ciência, romance e situações divertidas.
-                A história acompanha Olive e Adam enquanto eles tentam
-                descobrir se um relacionamento de mentira pode acabar se
-                transformando em algo verdadeiro.
-            </p>
- 
-        </section>
- 
- 
-        <!-- INFORMAÇÕES -->
-        <section class="informacoes-livro">
- 
-            <h2>Informações do livro</h2>
- 
-            <p><strong>Autora:</strong> Ali Hazelwood</p>
-            <p><strong>Gênero:</strong> Romance</p>
-            <p><strong>Editora:</strong> Arqueiro</p>
-            <p><strong>Idioma:</strong> Português</p>
- 
-        </section>
- 
- 
-        <!-- AVALIAÇÕES -->
-        <section class="avaliacoes">
- 
-            <h2>Avaliações dos leitores</h2>
- 
- 
-            <!-- AVALIAÇÃO FICTÍCIA -->
-            <div class="review">
- 
-                <div class="nome-review">
-                    Mariana
-                </div>
- 
-                <div class="estrelas-review">
-                    ★★★★★
-                </div>
- 
-                <h3>
-                    Um romance maravilhoso!
-                </h3>
- 
-                <p>
-                    A história é muito divertida e os personagens são
-                    apaixonantes. Foi uma leitura muito gostosa!
-                </p>
- 
-            </div>
- 
- 
-            <!-- AVALIAÇÃO FICTÍCIA -->
-            <div class="review">
- 
-                <div class="nome-review">
-                    Laura
-                </div>
- 
-                <div class="estrelas-review">
-                    ★★★★☆
-                </div>
- 
-                <h3>
-                    Leitura leve e divertida
-                </h3>
- 
-                <p>
-                    Gostei muito da dinâmica entre os personagens.
-                    Algumas partes me fizeram rir bastante.
-                </p>
- 
-            </div>
- 
- 
-            <!-- AVALIAÇÃO FICTÍCIA -->
-            <div class="review">
- 
-                <div class="nome-review">
-                    Sophia
-                </div>
- 
-                <div class="estrelas-review">
-                    ★★★★★
-                </div>
- 
-                <h3>
-                    Não queria terminar!
-                </h3>
- 
-                <p>
-                    Amei o casal principal e fiquei completamente presa
-                    na história.
-                </p>
- 
-            </div>
- 
- 
-            <!-- NOVAS AVALIAÇÕES -->
-            <div id="novasAvaliacoes"></div>
- 
- 
-        </section>
- 
- 
-        <!-- FORMULÁRIO -->
-        <section class="nova-avaliacao">
+        <section class="secao">
  
             <h2>
-                Compartilhe sua avaliação
+                Sobre o livro
             </h2>
  
-            <p>
-                O que você achou de A Hipótese do Amor?
+            <p class="sinopse">
+ 
+                Olive Smith é uma estudante de doutorado em
+                Biologia que acredita na ciência e prefere
+                confiar em fatos concretos a acreditar no amor.
+ 
+                <br><br>
+ 
+                Quando sua melhor amiga revela que está
+                interessada pelo ex-namorado de Olive, ela
+                decide ajudá-la fingindo estar em um
+                relacionamento.
+ 
+                <br><br>
+ 
+                O escolhido para participar da mentira é
+                Adam Carlsen, um jovem professor conhecido
+                por sua personalidade difícil.
+ 
+                <br><br>
+ 
+                O que começa como um simples namoro de mentira
+                começa a ficar muito mais complicado quando
+                Olive percebe que talvez seus sentimentos não
+                estejam seguindo exatamente as regras que ela
+                imaginava.
+ 
             </p>
  
+        </section>
  
-            <!-- ESCOLHER ESTRELAS -->
-            <div class="escolher-estrelas">
  
-                <span
-                    class="estrela-escolha"
-                    onclick="escolherNota(1)"
-                >★</span>
  
-                <span
-                    class="estrela-escolha"
-                    onclick="escolherNota(2)"
-                >★</span>
+        <!-- =========================
+             AVALIAÇÕES
+        ========================== -->
  
-                <span
-                    class="estrela-escolha"
-                    onclick="escolherNota(3)"
-                >★</span>
+        <section class="secao">
  
-                <span
-                    class="estrela-escolha"
-                    onclick="escolherNota(4)"
-                >★</span>
+            <h2>
+                Avaliações dos leitores
+            </h2>
  
-                <span
-                    class="estrela-escolha"
-                    onclick="escolherNota(5)"
-                >★</span>
+ 
+            <div class="avaliacoes-container">
+ 
+ 
+                <!-- RESUMO -->
+ 
+                <div class="resumo">
+ 
+                    <div class="nota-grande">
+                        4,8
+                    </div>
+ 
+                    <div class="estrelas">
+                        ★★★★★
+                    </div>
+ 
+                    <p style="margin-top:10px;">
+                        29.272 avaliações
+                    </p>
+ 
+ 
+                    <div class="barra">
+ 
+ 
+                        <div class="barra-item">
+ 
+                            5 ★
+ 
+                            <div class="barra-fundo">
+ 
+                                <div
+                                    class="barra-preenchida"
+                                    style="width:82%;">
+                                </div>
+ 
+                            </div>
+ 
+                            82%
+ 
+                        </div>
+ 
+ 
+                        <div class="barra-item">
+ 
+                            4 ★
+ 
+                            <div class="barra-fundo">
+ 
+                                <div
+                                    class="barra-preenchida"
+                                    style="width:12%;">
+                                </div>
+ 
+                            </div>
+ 
+                            12%
+ 
+                        </div>
+ 
+ 
+                        <div class="barra-item">
+ 
+                            3 ★
+ 
+                            <div class="barra-fundo">
+ 
+                                <div
+                                    class="barra-preenchida"
+                                    style="width:4%;">
+                                </div>
+ 
+                            </div>
+ 
+                            4%
+ 
+                        </div>
+ 
+ 
+                        <div class="barra-item">
+ 
+                            2 ★
+ 
+                            <div class="barra-fundo">
+ 
+                                <div
+                                    class="barra-preenchida"
+                                    style="width:1%;">
+                                </div>
+ 
+                            </div>
+ 
+                            1%
+ 
+                        </div>
+ 
+ 
+                        <div class="barra-item">
+ 
+                            1 ★
+ 
+                            <div class="barra-fundo">
+ 
+                                <div
+                                    class="barra-preenchida"
+                                    style="width:1%;">
+                                </div>
+ 
+                            </div>
+ 
+                            1%
+ 
+                        </div>
+ 
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+ 
+                <!-- PARTE DAS AVALIAÇÕES -->
+ 
+                <div>
+ 
+ 
+                    <!-- FORMULÁRIO -->
+ 
+                    <div class="form-avaliacao">
+ 
+                        <h3>
+                            Compartilhe sua opinião
+                        </h3>
+ 
+                        <p>
+                            Como você avalia este livro?
+                        </p>
+ 
+ 
+                        <div class="estrelas-form">
+ 
+                            <span
+                                class="estrela"
+                                onclick="selecionarEstrela(1)">
+                                ★
+                            </span>
+ 
+                            <span
+                                class="estrela"
+                                onclick="selecionarEstrela(2)">
+                                ★
+                            </span>
+ 
+                            <span
+                                class="estrela"
+                                onclick="selecionarEstrela(3)">
+                                ★
+                            </span>
+ 
+                            <span
+                                class="estrela"
+                                onclick="selecionarEstrela(4)">
+                                ★
+                            </span>
+ 
+                            <span
+                                class="estrela"
+                                onclick="selecionarEstrela(5)">
+                                ★
+                            </span>
+ 
+                        </div>
+ 
+ 
+                        <input
+                            type="text"
+                            id="nome"
+                            placeholder="Seu nome"
+                        >
+ 
+ 
+                        <input
+                            type="text"
+                            id="tituloReview"
+                            placeholder="Título da avaliação"
+                        >
+ 
+ 
+                        <textarea
+                            id="textoReview"
+                            placeholder="Escreva o que você achou do livro..."
+                        ></textarea>
+ 
+ 
+                        <button
+                            class="publicar"
+                            onclick="publicarAvaliacao()">
+ 
+                            Publicar avaliação
+ 
+                        </button>
+ 
+                    </div>
+ 
+ 
+ 
+                    <!-- AVALIAÇÃO 1 -->
+ 
+                    <div class="review">
+ 
+                        <div class="usuario">
+ 
+                            <div class="avatar">
+                                M
+                            </div>
+ 
+                            <div>
+ 
+                                <div class="nome">
+                                    Mariana de Jesus
+                                </div>
+ 
+                                <div class="data">
+                                    Avaliado em 12 de setembro de 2026
+                                </div>
+ 
+                            </div>
+ 
+                        </div>
+ 
+ 
+                        <div class="review-estrelas">
+                            ★★★★★
+                        </div>
+ 
+ 
+                        <h4>
+                            Um romance muito divertido!
+                        </h4>
+ 
+ 
+                        <p>
+ 
+                            Amei a dinâmica dos personagens.
+                            A história é leve, engraçada e muito
+                            gostosa de ler. Foi impossível não
+                            torcer pelo casal,kkk ainda mais pela geladeira eletrolux
+                            da mamãe Ali.
+ 
+                        </p>
+ 
+                    </div>
+ 
+ 
+ 
+                    <!-- AVALIAÇÃO 2 -->
+ 
+                    <div class="review">
+ 
+                        <div class="usuario">
+ 
+                            <div class="avatar">
+                                L
+                            </div>
+ 
+                            <div>
+ 
+                                <div class="nome">
+                                    Laura Barros
+                                </div>
+ 
+                                <div class="data">
+                                    Avaliado em 5 de setembro de 2026
+                                </div>
+ 
+                            </div>
+ 
+                        </div>
+ 
+ 
+                        <div class="review-estrelas">
+                            ★★★★☆
+                        </div>
+ 
+ 
+                        <h4>
+                            Leitura incrível e apaixonante
+                        </h4>
+ 
+ 
+                        <p>
+ 
+                            Gostei muito da história e principalmente
+                            dos diálogos. Alguns momentos são muito
+                            engraçados e deixam a leitura super leve.
+ 
+                        </p>
+ 
+                    </div>
+ 
+ 
+ 
+                    <!-- AVALIAÇÃO 3 -->
+ 
+                    <div class="review">
+ 
+                        <div class="usuario">
+ 
+                            <div class="avatar">
+                                B
+                            </div>
+ 
+                            <div>
+ 
+                                <div class="nome">
+                                    Beatriz Silva
+                                </div>
+ 
+                                <div class="data">
+                                    Avaliado em 28 de agosto de 2026
+                                </div>
+ 
+                            </div>
+ 
+                        </div>
+ 
+ 
+                        <div class="review-estrelas">
+                            ★★★★★
+                        </div>
+ 
+ 
+                        <h4>
+                            Favorito!
+                        </h4>
+ 
+ 
+                        <p>
+ 
+                            Foi aquele tipo de livro que eu queria
+                            continuar lendo mesmo quando já estava
+                            tarde. Os personagens são cativantes e
+                            a história prende bastante,fora que a
+                            química entre o Adam e a Olive é muito cativante.
+ 
+                        </p>
+ 
+                    </div>
+ 
+ 
+ 
+                    <!-- NOVAS AVALIAÇÕES -->
+ 
+                    <div id="novasAvaliacoes"></div>
+ 
+ 
+                </div>
  
             </div>
- 
- 
-            <input
-                type="text"
-                id="nome"
-                placeholder="Seu nome"
-            >
- 
- 
-            <input
-                type="text"
-                id="titulo"
-                placeholder="Título da avaliação"
-            >
- 
- 
-            <textarea
-                id="textoAvaliacao"
-                placeholder="Escreva sua avaliação..."
-            ></textarea>
- 
- 
-            <button
-                class="botao-publicar"
-                onclick="publicarAvaliacao()"
-            >
-                Publicar avaliação
-            </button>
  
         </section>
  
     </main>
  
  
-    <!-- RODAPÉ -->
+ 
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+ 
     <footer>
  
+        <h3>
+            Book´s World
+        </h3>
+ 
         <p>
-            © 2026 Minha Livraria | Projeto escolar
+            Viva outras realidades.
         </p>
  
     </footer>
  
  
  
-    <!-- JAVASCRIPT -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+ 
     <script>
  
-        /* =========================
-           ESTRELAS DO LIVRO
-        ========================= */
+        let notaSelecionada = 0;
  
-        let notaLivro = 0;
+ 
+        /* =========================
+           SELECIONAR ESTRELAS
+        ========================== */
  
         function selecionarEstrela(nota) {
  
-            notaLivro = nota;
+            notaSelecionada = nota;
  
             const estrelas =
                 document.querySelectorAll(".estrela");
  
+ 
             estrelas.forEach((estrela, index) => {
  
                 if (index < nota) {
+ 
                     estrela.classList.add("selecionada");
+ 
                 } else {
+ 
                     estrela.classList.remove("selecionada");
+ 
                 }
  
             });
- 
-            document.getElementById("nota").innerText =
-                nota + " de 5";
  
         }
  
  
  
         /* =========================
-           ESTRELAS DA AVALIAÇÃO
-        ========================= */
+           PROTEGER TEXTO DO USUÁRIO
+        ========================== */
  
-        let notaEscolhida = 0;
+        function escaparHTML(texto) {
+ 
+            const div =
+                document.createElement("div");
+ 
+            div.textContent = texto;
+ 
+            return div.innerHTML;
+ 
+        }
  
  
-        function escolherNota(nota) {
  
-            notaEscolhida = nota;
+        /* =========================
+           PUBLICAR AVALIAÇÃO
+        ========================== */
+ 
+        function publicarAvaliacao() {
+ 
+            const nome =
+                document.getElementById("nome")
+                    .value.trim();
+ 
+            const titulo =
+                document.getElementById("tituloReview")
+                    .value.trim();
+ 
+            const texto =
+                document.getElementById("textoReview")
+                    .value.trim();
+ 
+ 
+            if (
+                nome === "" ||
+                titulo === "" ||
+                texto === "" ||
+                notaSelecionada === 0
+            ) {
+ 
+                alert(
+                    "Preencha seu nome, escolha uma nota e escreva sua avaliação."
+                );
+ 
+                return;
+ 
+            }
+ 
+ 
+            const nomeSeguro =
+                escaparHTML(nome);
+ 
+            const tituloSeguro =
+                escaparHTML(titulo);
+ 
+            const textoSeguro =
+                escaparHTML(texto);
+ 
  
             const estrelas =
-                document.querySelectorAll(".estrela-escolha");
+                "★".repeat(notaSelecionada) +
+                "☆".repeat(5 - notaSelecionada);
  
-            estrelas.forEach((estrela, index) => {
  
-                if (index < nota) {
+            const novaReview =
+                document.createElement("div");
  
-                    estrela.classList.add("selecionada");
  
-                } else {
+            novaReview.className =
+                "review minha-review";
  
-                    estrela.classList.remove("selecionada");
  
-                }
+            novaReview.innerHTML = `
  
-            });
+                <div class="usuario">
+ 
+                    <div class="avatar">
+                        ${nomeSeguro.charAt(0).toUpperCase()}
+                    </div>
+ 
+                    <div>
+ 
+                        <div class="nome">
+                            ${nomeSeguro}
+                        </div>
+ 
+                        <div class="data">
+                            Sua avaliação
+                        </div>
+ 
+                    </div>
+ 
+                </div>
+ 
+ 
+                <div class="review-estrelas">
+                    ${estrelas}
+                </div>
+ 
+ 
+                <h4>
+                    ${tituloSeguro}
+                </h4>
+ 
+ 
+                <p>
+                    ${textoSeguro}
+                </p>
+ 
+ 
+                <button
+                    class="excluir"
+                    onclick="this.parentElement.remove()">
+ 
+                    🗑 Apagar minha avaliação
+ 
+                </button>
+ 
+            `;
+ 
+ 
+            document
+                .getElementById("novasAvaliacoes")
+                .prepend(novaReview);
+ 
+ 
+            /* LIMPAR CAMPOS */
+ 
+            document.getElementById("nome").value = "";
+ 
+            document.getElementById("tituloReview").value = "";
+ 
+            document.getElementById("textoReview").value = "";
+ 
+ 
+            selecionarEstrela(0);
+ 
+ 
+            alert(
+                "Sua avaliação foi publicada com sucesso! ⭐"
+            );
  
         }
  
  
  
         /* =========================
-           CARREGAR AVALIAÇÕES
-        ========================= */
+           FAVORITOS
+        ========================== */
  
-        let avaliacoes =
-            JSON.parse(
-                localStorage.getItem("avaliacoesLivro")
-            ) || [];
+        function favoritar() {
  
- 
-        function mostrarAvaliacoes() {
- 
-            const container =
-                document.getElementById("novasAvaliacoes");
- 
-            container.innerHTML = "";
+            const botao =
+                document.getElementById("botaoFavorito");
  
  
-            avaliacoes.forEach((avaliacao) => {
+            if (
+                botao.innerHTML.includes("♡")
+            ) {
  
-                const div =
-                    document.createElement("div");
+                botao.innerHTML =
+                    "♥ Livro adicionado aos favoritos";
  
-                div.className = "review nova-review";
+                botao.style.color =
+                    "#a06c16";
  
+            } else {
  
-                let estrelas = "";
+                botao.innerHTML =
+                    "♡ Adicionar aos favoritos";
  
-                for (
-                    let i = 1;
-                    i <= 5;
-                    i++
-                ) {
+                botao.style.color =
+                    "#222";
  
-                    if (i <= avaliacao.nota) {
+            }
  
-                        estrelas += "★";
- 
-                    } else {
- 
-                        estrelas += "☆";
- 
-                    }
- 
-                }
+        }
  
  
-                div.innerHTML = `
  
-                    <div class="nome-review">
-                        ${avaliacao.nome}
-                    </div>
+        /* =========================
+           PESQUISA
+        ========================== */
  
-                    <div class="estrelas-review">
-                        ${estrelas}
-                    </div>
+        function pesquisar() {
  
-                    <h3>
-                        ${avaliacao.titulo}
-                    </h3>
+            const texto =
+                document.getElementById("pesquisa")
+                    .value.trim();
  
-                    <p>
-                        ${avaliacao.texto}
-                    </p>
  
-                ;
+            if (texto === "") {
+ 
+                alert(
+                    "Digite o nome de um livro ou autor."
+                );
+ 
+                return;
+ 
+            }
+ 
+ 
+            alert(
+                "Você pesquisou por: " + texto
+            );
+ 
+        }
+ 
+ 
+ 
+        /* =========================
+           ENTER NA PESQUISA
+        ========================== */
+ 
+        function verificarEnter(event) {
+ 
+            if (event.key === "Enter") {
+ 
+                pesquisar();
+ 
+            }
+ 
+        }
+ 
+    </script>
+ 
+</body>
+ 
+</html>
