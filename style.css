@@ -82,19 +82,20 @@ nav ul li a:hover {
 
 .livros {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(4, 280px);
+    gap: 30px;
     padding: 20px;
+    justify-content: center;
 }
 
 .livro {
     width: 200px;
     height: 280px;
-   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
- 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
     border-radius: 10px;
     overflow: hidden;
-}
+}s
 
 .livro img {
     width: 100%;
