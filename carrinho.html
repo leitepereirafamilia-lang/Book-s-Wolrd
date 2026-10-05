@@ -1,292 +1,112 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho - Book's World</title>
+    <link rel="stylesheet" href="css/carrinho.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <body>
+    <script src="js/menu.js"></script>
 
-    <title>Meu Carrinho - Book's World</title>
-
-    <link rel="stylesheet" href="css/carrinho.css">
-</head>
-
-<body>
-
-<header>
-
-    <nav>
-
-        <ul>
-
-            <li class="logo">
-                <img
-                    src="a_clean_transparent_background_logo_graphic_file_c.png"
-                    alt="Book's World"
-                >
-            </li>
-
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
-
-            <li>
-                <a href="#">Generos</a>
-            </li>
-
-            <li>
-                <a href="#">Autores</a>
-            </li>
-
-            <li>
-                <a href="#">Promocoes</a>
-            </li>
-
-            <li>
-                <a href="#">Mais vendidos</a>
-            </li>
-
-            <li class="pesquisa">
-
-                <div class="barra-pesquisa">
-
-                    <input
-                        type="text"
-                        placeholder="Buscar livros, autores..."
-                    >
-
-                    <button>
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            width="17"
-                            height="17"
-                        >
-
-                            <circle
-                                cx="11"
-                                cy="11"
-                                r="7"
-                                fill="none"
-                                stroke="#333"
-                                stroke-width="1.5"
-                            />
-
-                            <line
-                                x1="16"
-                                y1="16"
-                                x2="21"
-                                y2="21"
-                                stroke="#333"
-                                stroke-width="1.5"
-                            />
-
-                        </svg>
-
-                    </button>
-
-                </div>
-
-            </li>
-
-            <li>
-                <a href="#">Minha conta</a>
-            </li>
-
-            <li>
-                <a href="carrinho.html" class="carrinho-atual">
-                    Meu carrinho
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-<main>
-
-    <div class="caminho">
-
+    <main class="pagina-carrinho">
+      <div class="caminho">
         <a href="index.html">Inicio</a>
 
         <span>›</span>
 
         <strong>Carrinho</strong>
+      </div>
 
-    </div>
-
-
-    <section class="titulo-pagina">
-
+      <section class="titulo-pagina">
         <div>
+          <span class="etiqueta"> BOOK'S WORLD </span>
 
-            <span class="etiqueta">
-                BOOK'S WORLD
-            </span>
+          <h1>Meu carrinho</h1>
 
-            <h1>Meu carrinho</h1>
-
-            <p>
-                Confira seus livros antes de finalizar a compra.
-            </p>
-
+          <p>Confira seus livros antes de finalizar a compra.</p>
         </div>
+      </section>
 
-    </section>
-
-
-    <div class="layout-carrinho">
-
-
+      <div class="layout-carrinho">
         <!-- PRODUTOS -->
 
         <section class="area-produtos">
+          <div class="cabecalho-produtos">
+            <div>
+              <h2>Seus livros</h2>
 
-            <div class="cabecalho-produtos">
-
-                <div>
-
-                    <h2>Seus livros</h2>
-
-                    <p>
-                        Selecione os livros que deseja comprar.
-                    </p>
-
-                </div>
-
-
-                <label class="selecionar-todos">
-
-                    <input
-                        type="checkbox"
-                        id="selecionar-todos"
-                    >
-
-                    <span>Selecionar todos</span>
-
-                </label>
-
+              <p>Selecione os livros que deseja comprar.</p>
             </div>
 
+            <label class="selecionar-todos">
+              <input type="checkbox" id="selecionar-todos" />
 
-            <section id="lista-carrinho"></section>
+              <span>Selecionar todos</span>
+            </label>
+          </div>
 
+          <section id="lista-carrinho"></section>
         </section>
-
 
         <!-- RESUMO -->
 
         <aside class="resumo">
+          <div class="resumo-topo">
+            <span class="resumo-etiqueta"> SUA COMPRA </span>
 
-            <div class="resumo-topo">
+            <h2>Resumo da compra</h2>
+          </div>
 
-                <span class="resumo-etiqueta">
-                    SUA COMPRA
-                </span>
+          <div class="resumo-conteudo">
+            <div class="resumo-linha">
+              <span>Subtotal</span>
 
-                <h2>Resumo da compra</h2>
-
+              <strong> R$ <span id="total">0.00</span> </strong>
             </div>
 
+            <div class="resumo-linha">
+              <span>Frete</span>
 
-            <div class="resumo-conteudo">
-
-
-                <div class="resumo-linha">
-
-                    <span>Subtotal</span>
-
-                    <strong>
-                        R$ <span id="total">0.00</span>
-                    </strong>
-
-                </div>
-
-
-                <div class="resumo-linha">
-
-                    <span>Frete</span>
-
-                    <strong class="frete">
-                        Gratis
-                    </strong>
-
-                </div>
-
-
-                <div class="linha"></div>
-
-
-                <div class="resumo-total">
-
-                    <span>Total</span>
-
-                    <strong>
-                        R$ <span id="total-resumo">0.00</span>
-                    </strong>
-
-                </div>
-
-
-                <button
-                    class="botao-finalizar"
-                    onclick="finalizarCompra()"
-                >
-                    Finalizar compra
-                </button>
-
-
-                <a
-                    href="index.html"
-                    class="continuar"
-                >
-                    ← Continuar comprando
-                </a>
-
-
-                <div class="compra-segura">
-
-                    <div class="icone-seguro">
-                        ✓
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Compra segura
-                        </strong>
-
-                        <p>
-                            Seus dados estarao protegidos durante a compra.
-                        </p>
-
-                    </div>
-
-                </div>
-
+              <strong class="frete"> Gratis </strong>
             </div>
 
+            <div class="linha"></div>
 
-            <div class="resumo-rodape">
+            <div class="resumo-total">
+              <span>Total</span>
 
-                <span>BOOK'S WORLD</span>
-
-                <span>Leitura que transforma.</span>
-
+              <strong> R$ <span id="total-resumo">0.00</span> </strong>
             </div>
 
+            <button class="botao-finalizar" onclick="finalizarCompra()">
+              Finalizar compra
+            </button>
+
+            <a href="index.html" class="continuar"> ← Continuar comprando </a>
+
+            <div class="compra-segura">
+              <div class="icone-seguro">✓</div>
+
+              <div>
+                <strong> Compra segura </strong>
+
+                <p>Seus dados estarao protegidos durante a compra.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resumo-rodape">
+            <span>BOOK'S WORLD</span>
+
+            <span>Leitura que transforma.</span>
+          </div>
         </aside>
+      </div>
+    </main>
 
-    </div>
-
-</main>
-
-
-<script src="js/carrinho.js"></script>
-
-</body>
-
+    <script src="js/carrinho.js"></script>
+  </body>
 </html>

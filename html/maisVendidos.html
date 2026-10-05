@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Mais Vendidos - Book's World</title>
+
+    <link rel="stylesheet" href="css/maisvendidos.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+  </head>
+
+  <body>
+    <header class="menu-principal">
+      <nav>
+        <ul>
+          <li class="logo">
+            <a href="index.html">
+              <img
+                src="IMG/a_clean_transparent_background_logo_graphic_file_c.png"
+                alt="Book's World"
+              />
+            </a>
+          </li>
+
+          <li>
+            <a href="index.html">Início</a>
+          </li>
+
+          <li>
+            <a href="generos.html">Gêneros</a>
+          </li>
+
+          <li>
+            <a href="autores.html">Autores</a>
+          </li>
+
+          <li>
+            <a href="promocoes.html">Promoções</a>
+          </li>
+
+          <li>
+            <a href="maisVendidos.html">Mais vendidos</a>
+          </li>
+
+          <li class="pesquisa">
+            <div class="barra-pesquisa">
+              <input type="text" placeholder="Buscar livros, autores..." />
+
+              <button type="button">
+                <svg viewBox="0 0 24 24" width="17" height="17">
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="1.5"
+                  />
+
+                  <line
+                    x1="16"
+                    y1="16"
+                    x2="21"
+                    y2="21"
+                    stroke="#333"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </button>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Minha conta</a>
+          </li>
+
+          <li>
+            <a href="carrinho.html">Meu carrinho</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Mais Vendidos</h1>
+
+      <div id="lista-livros"></div>
+    </main>
+
+    <!-- PRIMEIRO o arquivo com o array livros -->
+    <script src="js/livros.js"></script>
+
+    <!-- DEPOIS o código dos mais vendidos -->
+    <script src="js/maisvendidos.js"></script>
+  </body>
+</html>

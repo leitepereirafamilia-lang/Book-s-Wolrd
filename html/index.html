@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book's World</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style-inicio.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+  </head>
+
+  <body>
+    <header class="menu-principal">
+      <nav>
+        <ul>
+          <li class="logo">
+            <a href="index.html">
+              <img
+                src="IMG/a_clean_transparent_background_logo_graphic_file_c.png"
+                alt="Book's World"
+              />
+            </a>
+          </li>
+
+          <li>
+            <a href="index.html">Início</a>
+          </li>
+
+          <li>
+            <a href="generos.html">Gêneros</a>
+          </li>
+
+          <li>
+            <a href="autores.html">Autores</a>
+          </li>
+
+          <li>
+            <a href="promocoes.html">Promoções</a>
+          </li>
+
+          <li>
+            <a href="maisVendidos.html">Mais vendidos</a>
+          </li>
+
+          <li class="pesquisa">
+            <div class="barra-pesquisa">
+              <input type="text" placeholder="Buscar livros, autores..." />
+
+              <button type="button">
+                <svg viewBox="0 0 24 24" width="17" height="17">
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="1.5"
+                  />
+
+                  <line
+                    x1="16"
+                    y1="16"
+                    x2="21"
+                    y2="21"
+                    stroke="#333"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </button>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Minha conta</a>
+          </li>
+
+          <li>
+            <a href="carrinho.html">Meu carrinho</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="banner-anuncios">
+      <div class="banner-container">
+        <div class="banner-track" id="bannerTrack">
+          <!-- BANNER 1 -->
+          <a href="promocoes.html" class="banner-slide">
+            <img src="IMG/banner1.jpg" alt="Kit pré-venda Carmilla" />
+          </a>
+
+          <!-- BANNER 2 -->
+          <a href="lancamentos.html" class="banner-slide">
+            <img src="IMG/banner2.jpg" alt="Lançamento Harry Potter" />
+          </a>
+
+          <!-- BANNER 3 -->
+          <a href="promocoes.html" class="banner-slide">
+            <img src="IMG/banner3.jpg" alt="Promoções Book's World" />
+          </a>
+        </div>
+
+        <!-- BOTÃO ESQUERDA -->
+        <button
+          class="banner-btn banner-anterior"
+          onclick="mudarBanner(-1)"
+          aria-label="Banner anterior"
+        >
+          &#10094;
+        </button>
+
+        <!-- BOTÃO DIREITA -->
+        <button
+          class="banner-btn banner-proximo"
+          onclick="mudarBanner(1)"
+          aria-label="Próximo banner"
+        >
+          &#10095;
+        </button>
+      </div>
+
+      <!-- BOLINHAS -->
+      <div class="banner-indicadores">
+        <button class="indicador ativo" onclick="irParaBanner(0)"></button>
+
+        <button class="indicador" onclick="irParaBanner(1)"></button>
+
+        <button class="indicador" onclick="irParaBanner(2)"></button>
+      </div>
+    </section>
+
+    <div class="fundo">
+      <div class="retangulo2">
+        <p>Bem vindo ao Book's World</p>
+      </div>
+
+      <div class="livro">
+        <p>Seu próximo livro<br />está aqui</p>
+      </div>
+
+      <div class="texto9">
+        <p>
+          Encontre histórias que inspiram, emocionam e<br />transformam.
+          Descubram novos mundos e viva<br />grandes aventuras.
+        </p>
+      </div>
+
+      <div class="retangulos">
+        <div class="retangulo3">
+          <p>Explorar livros <span>→</span></p>
+        </div>
+
+        <div class="retangulo4">
+          <p>Ver promoções <span>→</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="retangulo">
+      <img
+        src="IMG/caminhao_frete_sem_fundo.png"
+        alt="Frete grátis"
+        class="icone-seguranca"
+      />
+
+      <ul>
+        <p>Frete grátis</p>
+        <p>Para a sua compra acima de R$149</p>
+      </ul>
+
+      <div class="linha-vertical"></div>
+
+      <img
+        src="IMG/icone_conta_segura.png"
+        alt="Conta segura"
+        class="icone-seguranca"
+      />
+
+      <ul>
+        <p>Conta segura</p>
+        <p>Seus dados protegidos</p>
+      </ul>
+
+      <div class="linha-vertical"></div>
+
+      <img
+        src="IMG/icone_troca_garantida.png"
+        alt="Troca garantida"
+        class="icone-seguranca"
+      />
+
+      <ul>
+        <p>Troca garantida</p>
+        <p>Em até 7 dias após o recebimento</p>
+      </ul>
+
+      <div class="linha-vertical"></div>
+
+      <img
+        src="IMG/icone_atendimento.png"
+        alt="Atendimento"
+        class="icone-seguranca"
+      />
+
+      <ul>
+        <p>Atendimento</p>
+        <p>Suporte dedicado</p>
+      </ul>
+    </div>
+
+    <div class="mais-vendidos">
+      <p>Mais vendidos</p>
+    </div>
+
+    <div class="retangulos2">
+      <div class="retangulo5">
+        <img src="IMG/e_assim_que_acaba.png" alt="Collen Hoover" />
+
+        <p>É Assim que Acaba</p>
+        <p>Colleen Hoover<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$39,90</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="IMG/percy_jackson.png" alt="Rick Riordan" />
+
+        <p>O Ladrão de Raios</p>
+        <p>Rick Riordan<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$90,00</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="IMG/alchemised_livro.png" alt="SenLinYu" />
+
+        <p>Alchemised</p>
+        <p>SinLenYu<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$44,25</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="IMG/o_principe_cruel.png" alt="Holly Black" />
+        <p>o Princípe Cruel</p>
+        <p>Holly Black</p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$39,39</p>
+      </div>
+    </div>
+
+    <div class="retangulos2">
+      <div class="retangulo5">
+        <img src="IMG/box_harry_potter.png" alt="J. K. Rowling" />
+
+        <p>Box-Harry Potter</p>
+        <p>J. K. Rowling<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$308,69</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="IMG/hamlet_william.png" alt="William Shakespeare" />
+
+        <p>Hamlet</p>
+        <p>William Shakespeare<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$10,76</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="IMG/verity_collen.png" alt="Collen Hoover" />
+
+        <p>Verity</p>
+        <p>Collen Hoover<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$43,09</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="IMG/amor_e_gelato.png" alt="Jenna Evans Welch" />
+        <p>Amor e Gelato</p>
+        <p>Jenna Evans Welch</p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$43,93</p>
+      </div>
+    </div>
+
+    <div class="banner-promocao">
+      <div class="icone-promocao">
+        <img src="IMG/etiqueta_icone.png" alt="Promoção" />
+      </div>
+
+      <div class="texto-promocao">
+        <h2>Promoções imperdíveis</h2>
+        <p>Descobertas especiais em<br />livros selecionados!</p>
+      </div>
+
+      <img class="imagem-livros" src="IMG/icone_livros.png" alt="Livros" />
+
+      <button class="botao-promocao">
+        Aproveitar agora
+        <span>→</span>
+      </button>
+    </div>
+
+    <script src="js/anuncios.js"></script>
+  </body>
+</html>

@@ -4,27 +4,32 @@ const total = document.getElementById("total");
 
 const totalResumo = document.getElementById("total-resumo");
 
-
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 let selecionados = JSON.parse(localStorage.getItem("selecionados")) || [];
 
-
 if (carrinho.length === 0) {
-
-    listaCarrinho.innerHTML = "<p>Seu carrinho está vazio</p>";
-
+  listaCarrinho.innerHTML = "<p>Seu carrinho está vazio</p>";
 }
 
+carrinho.forEach((item) => {
+  const livro = item.livro;
 
-carrinho.forEach(item => {
+  const subtotal = livro.preco * item.quantidade;
 
-    const livro = item.livro;
+  // Capa: usa a que foi salva no carrinho; se não tiver (item antigo),
+  // procura no livros.js (se a página carregar esse arquivo)
+  const dadosAtuais =
+    typeof livros !== "undefined"
+      ? livros.find((l) => l.id === livro.id)
+      : null;
 
-    const subtotal = livro.preco * item.quantidade;
+  const imagem =
+    livro.imagem ||
+    (dadosAtuais && dadosAtuais.imagem) ||
+    "IMG/livro-sem-capa.png";
 
-
-    listaCarrinho.innerHTML += `
+  listaCarrinho.innerHTML += `
 
         <div class="card-carrinho">
 
@@ -34,6 +39,15 @@ carrinho.forEach(item => {
                 class="selecionar-livro"
                 data-id="${livro.id}"
             >
+
+
+            <div class="capa-carrinho">
+                <img
+                    src="${imagem}"
+                    alt="Capa do livro ${livro.titulo}"
+                    onerror="this.onerror=null; this.src='IMG/livro-sem-capa.png'"
+                >
+            </div>
 
 
             <div class="info-livro">
@@ -85,226 +99,136 @@ carrinho.forEach(item => {
         </div>
 
     `;
-
 });
-
 
 // AUMENTAR QUANTIDADE
 
 function aumentarQuantidade(id) {
+  const item = carrinho.find((item) => item.livro.id === id);
 
-    const item = carrinho.find(item => item.livro.id === id);
+  item.quantidade++;
 
-    item.quantidade++;
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    );
-
-    location.reload();
-
+  location.reload();
 }
-
 
 // DIMINUIR QUANTIDADE
 
 function diminuirQuantidade(id) {
+  const item = carrinho.find((item) => item.livro.id === id);
 
-    const item = carrinho.find(item => item.livro.id === id);
+  if (item.quantidade > 1) {
+    item.quantidade--;
+  }
 
-    if (item.quantidade > 1) {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-        item.quantidade--;
-
-    }
-
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    );
-
-    location.reload();
-
+  location.reload();
 }
-
 
 // REMOVER LIVRO
 
 function removerCarrinho(id) {
+  carrinho = carrinho.filter((item) => item.livro.id !== id);
 
-    carrinho = carrinho.filter(
-        item => item.livro.id !== id
-    );
+  selecionados = selecionados.filter((item) => item !== id);
 
-    selecionados = selecionados.filter(
-        item => item !== id
-    );
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
+  localStorage.setItem("selecionados", JSON.stringify(selecionados));
 
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    );
-
-    localStorage.setItem(
-        "selecionados",
-        JSON.stringify(selecionados)
-    );
-
-
-    location.reload();
-
+  location.reload();
 }
-
 
 // FINALIZAR COMPRA
 
 function finalizarCompra() {
+  if (selecionados.length === 0) {
+    alert("Selecione pelo menos um livro para continuar.");
 
-    if (selecionados.length === 0) {
+    return;
+  }
 
-        alert("Selecione pelo menos um livro para continuar.");
-
-        return;
-
-    }
-
-    window.location.href = "pagamento.html";
-
+  window.location.href = "pagamento.html";
 }
-
 
 // CHECKBOX DE SELECIONAR TODOS
 
-const checkboxes =
-    document.querySelectorAll(".selecionar-livro");
+const checkboxes = document.querySelectorAll(".selecionar-livro");
 
-const selecionarTodos =
-    document.getElementById("selecionar-todos");
+const selecionarTodos = document.getElementById("selecionar-todos");
 
-
-selecionarTodos.addEventListener("change", function() {
-
-    checkboxes.forEach(checkbox => {
-
-        checkbox.checked = this.checked;
-
-        const id = Number(checkbox.dataset.id);
-
-
-        if (this.checked) {
-
-            if (!selecionados.includes(id)) {
-
-                selecionados.push(id);
-
-            }
-
-        } else {
-
-            selecionados =
-                selecionados.filter(item => item !== id);
-
-        }
-
-    });
-
-
-    localStorage.setItem(
-        "selecionados",
-        JSON.stringify(selecionados)
-    );
-
-
-    atualizarTotal();
-
-});
-
-
-// MARCAR OS LIVROS QUE JÁ ESTAVAM SELECIONADOS
-
-checkboxes.forEach(checkbox => {
+selecionarTodos.addEventListener("change", function () {
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = this.checked;
 
     const id = Number(checkbox.dataset.id);
 
-
-    if (selecionados.includes(id)) {
-
-        checkbox.checked = true;
-
+    if (this.checked) {
+      if (!selecionados.includes(id)) {
+        selecionados.push(id);
+      }
+    } else {
+      selecionados = selecionados.filter((item) => item !== id);
     }
+  });
 
+  localStorage.setItem("selecionados", JSON.stringify(selecionados));
+
+  atualizarTotal();
 });
 
+// MARCAR OS LIVROS QUE JÁ ESTAVAM SELECIONADOS
+
+checkboxes.forEach((checkbox) => {
+  const id = Number(checkbox.dataset.id);
+
+  if (selecionados.includes(id)) {
+    checkbox.checked = true;
+  }
+});
 
 // ATUALIZAR TOTAL AO ABRIR A PÁGINA
 
 atualizarTotal();
 
-
 // SELECIONAR / DESSELECIONAR LIVRO
 
-checkboxes.forEach(checkbox => {
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", function () {
+    const id = Number(this.dataset.id);
 
-    checkbox.addEventListener("change", function() {
+    if (this.checked) {
+      if (!selecionados.includes(id)) {
+        selecionados.push(id);
+      }
+    } else {
+      selecionados = selecionados.filter((item) => item !== id);
+    }
 
-        const id = Number(this.dataset.id);
+    localStorage.setItem("selecionados", JSON.stringify(selecionados));
 
+    atualizarTotal();
 
-        if (this.checked) {
-
-            if (!selecionados.includes(id)) {
-
-                selecionados.push(id);
-
-            }
-
-        } else {
-
-            selecionados =
-                selecionados.filter(item => item !== id);
-
-        }
-
-
-        localStorage.setItem(
-            "selecionados",
-            JSON.stringify(selecionados)
-        );
-
-
-        atualizarTotal();
-
-    });
-
+    selecionarTodos.checked = [...checkboxes].every(
+      (checkbox) => checkbox.checked,
+    );
+  });
 });
-
 
 // CALCULAR TOTAL
 
 function atualizarTotal() {
+  let valorTotal = 0;
 
-    let valorTotal = 0;
+  carrinho.forEach((item) => {
+    if (selecionados.includes(item.livro.id)) {
+      valorTotal += item.livro.preco * item.quantidade;
+    }
+  });
 
+  total.textContent = valorTotal.toFixed(2);
 
-    carrinho.forEach(item => {
-
-        if (selecionados.includes(item.livro.id)) {
-
-            valorTotal +=
-                item.livro.preco * item.quantidade;
-
-        }
-
-    });
-
-
-    total.textContent =
-        valorTotal.toFixed(2);
-
-
-    totalResumo.textContent =
-        valorTotal.toFixed(2);
-
+  totalResumo.textContent = valorTotal.toFixed(2);
 }

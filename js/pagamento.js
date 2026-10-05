@@ -1,9 +1,9 @@
-function mostrarPix(){
-    document.getElementById("pix").innerHTML = "";
-    document.getElementById("credito").innerHTML = "";
-    document.getElementById("debito").innerHTML = "";
+function mostrarPix() {
+  document.getElementById("pix").innerHTML = "";
+  document.getElementById("credito").innerHTML = "";
+  document.getElementById("debito").innerHTML = "";
 
-    document.getElementById("pix").innerHTML = `
+  document.getElementById("pix").innerHTML = `
         <h2>Pagamento via PIX</h2>
 
         <p>Valor da Compra</p>
@@ -27,26 +27,24 @@ function mostrarPix(){
             Finalizar Compra
         </button>
     `;
-    gerarQrCode();
+  gerarQrCode();
 }
 
 function gerarQrCode() {
+  const qrCode = document.getElementById("qr-code");
 
-    const qrCode = document.getElementById("qr-code");
+  qrCode.innerHTML = "";
 
-    qrCode.innerHTML = "";
-
-    new QRCode(qrCode, {
-        text: "BooksWorld - Pagamento PIX",
-        width: 200,
-        height: 200
-    });
-
+  new QRCode(qrCode, {
+    text: "BooksWorld - Pagamento PIX",
+    width: 200,
+    height: 200,
+  });
 }
 
-function copiarPix(){
-    const codigo = document.getElementById("codigo-pix");
-    navigator.clipboard.writeText(codigo.value);
+function copiarPix() {
+  const codigo = document.getElementById("codigo-pix");
+  navigator.clipboard.writeText(codigo.value);
 }
 // function criarCanto(qrCode, posicao){
 //     const quadrados = qrCode.children;
@@ -79,29 +77,28 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 let selecionados = JSON.parse(localStorage.getItem("selecionados")) || [];
 let valorTotal = 0;
 
-carrinho.forEach(item => {
-    if(selecionados.includes(item.livro.id)){
-        valorTotal += item.livro.preco * item.quantidade;
-    }
+carrinho.forEach((item) => {
+  if (selecionados.includes(item.livro.id)) {
+    valorTotal += item.livro.preco * item.quantidade;
+  }
 });
 
-function confirmarPix(){
-    const confirmar = confirm(
-        `Deseja confirmar o pagamento de R$ ${valorTotal.toFixed(2)}?`
-    );
+function confirmarPix() {
+  const confirmar = confirm(
+    `Deseja confirmar o pagamento de R$ ${valorTotal.toFixed(2)}?`,
+  );
 
-    if(confirmar){
-        finalizarCompra();
-    }
-    }
+  if (confirmar) {
+    finalizarCompra();
+  }
+}
 
+function mostrarDebito() {
+  document.getElementById("pix").innerHTML = "";
+  document.getElementById("credito").innerHTML = "";
+  document.getElementById("debito").innerHTML = "";
 
-function mostrarDebito(){
-    document.getElementById("pix").innerHTML = "";
-    document.getElementById("credito").innerHTML = "";
-    document.getElementById("debito").innerHTML = "";
-
-    document.getElementById("debito").innerHTML=`
+  document.getElementById("debito").innerHTML = `
         <h2>Pagamento com Débito</h2>
 
         <p>Valor da Compra</p>
@@ -136,79 +133,75 @@ function mostrarDebito(){
         id="cvv-debito"
         placeholder="123"
         maxlength="3"
-        oninput="formatarCvv()">
+        oninput="formatarCvv(this)">
 
         <button onclick="validarDebito()" class="botao-finalizar">
             Finalizar Compra
         </button>
-    `
+    `;
 }
 
-function validarDebito(){
-    const numero = document.getElementById("numero-debito").value;
-    const nome = document.getElementById("nome-debito").value;
-    const validade = document.getElementById("validade-debito").value;
-    const cvv = document.getElementById("cvv-debito").value;
-    const numeroEspacos = numero.replace(/\s/g, "");
+function validarDebito() {
+  const numero = document.getElementById("numero-debito").value;
+  const nome = document.getElementById("nome-debito").value;
+  const validade = document.getElementById("validade-debito").value;
+  const cvv = document.getElementById("cvv-debito").value;
+  const numeroEspacos = numero.replace(/\s/g, "");
 
-    if(!/^[0-9]+$/.test(numeroEspacos) || numeroEspacos.length !== 16){
-        alert("O número está inválido");
-        return;
-    }
+  if (!/^[0-9]+$/.test(numeroEspacos) || numeroEspacos.length !== 16) {
+    alert("O número está inválido");
+    return;
+  }
 
-    if(!/^[A-Za-zÀ-ÿ ]+$/.test(nome)){
-        alert("O nome está invalido.");
-        return;
-    }
-    
-    if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(validade)) {
-        alert("Digite uma validade válida. Exemplo: 09/28.");
-        return;
-    }
+  if (!/^[A-Za-zÀ-ÿ ]+$/.test(nome)) {
+    alert("O nome está invalido.");
+    return;
+  }
 
-    if (!/^[0-9]+$/.test(cvv) || cvv.length !== 3) {
-        alert("O CVV deve ter 3 números.");
-        return;
-    }
+  if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(validade)) {
+    alert("Digite uma validade válida. Exemplo: 09/28.");
+    return;
+  }
 
+  if (!/^[0-9]+$/.test(cvv) || cvv.length !== 3) {
+    alert("O CVV deve ter 3 números.");
+    return;
+  }
 
+  finalizarCompra();
 }
-
-
 
 function formatarValidade(campo) {
-    campo.value = campo.value.replace(/\D/g, "");
+  campo.value = campo.value.replace(/\D/g, "");
 
-    if (campo.value.length > 2) {
-        campo.value =
-            campo.value.substring(0, 2) + "/" +
-            campo.value.substring(2);
-    }
+  if (campo.value.length > 2) {
+    campo.value = campo.value.substring(0, 2) + "/" + campo.value.substring(2);
+  }
 }
 
-function formatarNumeroCartao(campo){
-    campo.value = campo.value.replace(/\D/g, "");
+function formatarNumeroCartao(campo) {
+  campo.value = campo.value.replace(/\D/g, "");
 
-    if(campo.value.length > 16){
-        campo.value = campo.value.substring(0,16);
-    }
-    campo.value = campo.value.replace(/(\d{4})(?=\d)/g, "$1 ");
+  if (campo.value.length > 16) {
+    campo.value = campo.value.substring(0, 16);
+  }
+  campo.value = campo.value.replace(/(\d{4})(?=\d)/g, "$1 ");
 }
 
-function formatarCvv(campo){
-    campo.value = campo.value.replace(/\D/g, "");
+function formatarCvv(campo) {
+  campo.value = campo.value.replace(/\D/g, "");
 
-    if(campo.value.length > 3){
-        campo.value = campo.value.substring(0, 3);
-    }
+  if (campo.value.length > 3) {
+    campo.value = campo.value.substring(0, 3);
+  }
 }
 
-function mostrarCredito(){
-    document.getElementById("pix").innerHTML = "";
-    document.getElementById("credito").innerHTML = "";
-    document.getElementById("debito").innerHTML = "";
-    
-    document.getElementById("credito").innerHTML=`
+function mostrarCredito() {
+  document.getElementById("pix").innerHTML = "";
+  document.getElementById("credito").innerHTML = "";
+  document.getElementById("debito").innerHTML = "";
+
+  document.getElementById("credito").innerHTML = `
         <h2>Pagamento com Crédito</h2>
 
         <p>Valor da Compra</p>
@@ -243,58 +236,77 @@ function mostrarCredito(){
         id="cvv-credito"
         placeholder="123"
         maxlength="3"
-        oninput="formatarCvv()">
+        oninput="formatarCvv(this)">
 
-        <button onclick="finalizarCompra()" class="botao-finalizar">
+        <button onclick="validarCredito()" class="botao-finalizar">
             Finalizar Compra
         </button>
-    `
+    `;
 }
 
-function validarDebito(){
-    const numero = document.getElementById("numero-credito").value;
-    const nome = document.getElementById("nome-credito").value;
-    const validade = document.getElementById("validade-credito").value;
-    const cvv = document.getElementById("cvv-credito").value;
-    const numeroEspacos = numero.replace(/\s/g, "");
+function validarCredito() {
+  const numero = document.getElementById("numero-credito").value;
+  const nome = document.getElementById("nome-credito").value;
+  const validade = document.getElementById("validade-credito").value;
+  const cvv = document.getElementById("cvv-credito").value;
+  const numeroEspacos = numero.replace(/\s/g, "");
 
-    if(!/^[0-9]+$/.test(numeroEspacos) || numeroEspacos.length !== 16){
-        alert("O número está inválido");
-        return;
-    }
+  if (!/^[0-9]+$/.test(numeroEspacos) || numeroEspacos.length !== 16) {
+    alert("O número está inválido");
+    return;
+  }
 
-    if(!/^[A-Za-zÀ-ÿ ]+$/.test(nome)){
-        alert("O nome está invalido.");
-        return;
-    }
-    
-    if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(validade)) {
-        alert("Digite uma validade válida. Exemplo: 09/28.");
-        return;
-    }
+  if (!/^[A-Za-zÀ-ÿ ]+$/.test(nome)) {
+    alert("O nome está invalido.");
+    return;
+  }
 
-    if (!/^[0-9]+$/.test(cvv) || cvv.length !== 3) {
-        alert("O CVV deve ter 3 números.");
-        return;
-    }
+  if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(validade)) {
+    alert("Digite uma validade válida. Exemplo: 09/28.");
+    return;
+  }
 
+  if (!/^[0-9]+$/.test(cvv) || cvv.length !== 3) {
+    alert("O CVV deve ter 3 números.");
+    return;
+  }
 
+  finalizarCompra();
 }
 
-function finalizarCompra(){
+function finalizarCompra() {
+  let carrinhoAtualizado = carrinho.filter((item) => {
+    return !selecionados.includes(item.livro.id);
+  });
 
-    let carrinhoAtualizado = carrinho.filter(item => {
-        return !selecionados.includes(item.livro.id);
-    });
-
-    localStorage.setItem("carrinho", JSON.stringify(carrinhoAtualizado));
-    localStorage.removeItem("selecionados");
-    alert("Pagamento realizado com sucesso")
-    window.location.href = "index.html";
+  localStorage.setItem("carrinho", JSON.stringify(carrinhoAtualizado));
+  localStorage.removeItem("selecionados");
+  alert("Pagamento realizado com sucesso");
+  window.location.href = "index.html";
 }
 
-function capitalizarNome(campo){
-    campo.value = campo.value
-        .toLowerCase()
-        .replace(/\b\w/g, letra => letra.toUpperCase());
+function capitalizarNome(campo) {
+  campo.value = campo.value
+    .toLowerCase()
+    .replace(/\b\w/g, (letra) => letra.toUpperCase());
+}
+
+// =========================
+// MÉTODO ESCOLHIDO FICA DESTACADO
+// =========================
+
+const botoesMetodo = document.querySelectorAll(".metodo");
+
+botoesMetodo.forEach((botao) => {
+  botao.addEventListener("click", () => {
+    botoesMetodo.forEach((b) => b.classList.remove("ativo"));
+    botao.classList.add("ativo");
+  });
+});
+
+// Já abre com "Crédito" escolhido
+const botaoCredito = document.querySelector('[data-metodo="credito"]');
+
+if (botaoCredito) {
+  botaoCredito.click();
 }

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Autores - Book's World</title>
+
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/livros.css" />
+  </head>
+
+  <body>
+    <script src="js/menu.js"></script>
+
+    <main class="pagina-autores">
+      <h1>Autores</h1>
+
+      <!-- LISTA DE AUTORES -->
+      <section id="vista-autores">
+        <div class="busca-autor">
+          <input
+            type="text"
+            id="busca-autor"
+            placeholder="Buscar autor..."
+            aria-label="Buscar autor"
+          />
+        </div>
+
+        <p id="contador-autores"></p>
+
+        <div id="lista-autores"></div>
+      </section>
+
+      <!-- LIVROS DO AUTOR ESCOLHIDO -->
+      <section id="vista-livros" hidden>
+        <button type="button" id="voltar-autores" class="voltar-autores">
+          ← Todos os autores
+        </button>
+
+        <h2 id="nome-autor"></h2>
+
+        <p id="contador-livros"></p>
+
+        <div id="lista-livros"></div>
+      </section>
+    </main>
+
+    <!-- PRIMEIRO o arquivo com o array livros -->
+    <script src="js/livros.js"></script>
+    <script src="js/adicionarCarrinho.js"></script>
+    <script src="js/autores.js"></script>
+  </body>
+</html>

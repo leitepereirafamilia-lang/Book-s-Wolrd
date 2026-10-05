@@ -1,1074 +1,889 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-    --azul: #102b45;
-    --azul-escuro: #0b2136;
-    --azul-claro: #1d456b;
+  --azul: #102b45;
+  --azul-escuro: #0b2136;
+  --azul-claro: #1d456b;
 
-    --dourado: #e3a400;
-    --dourado-claro: #fff5d9;
+  --dourado: #e3a400;
+  --dourado-claro: #fff5d9;
 
-    --fundo: #f5f4f1;
-    --branco: #ffffff;
+  --fundo: #f5f4f1;
+  --branco: #ffffff;
 
-    --texto: #17283a;
-    --texto-secundario: #6a7887;
+  --texto: #17283a;
+  --texto-secundario: #6a7887;
 
-    --borda: #dce2e7;
+  --borda: #dce2e7;
 
-    --vermelho: #a53a3a;
-    --verde: #16865b;
+  --vermelho: #a53a3a;
+  --verde: #16865b;
 
-    --sombra: 0 5px 18px rgba(16, 43, 69, 0.08);
-    --sombra-hover: 0 9px 26px rgba(16, 43, 69, 0.12);
+  --sombra: 0 5px 18px rgba(16, 43, 69, 0.08);
+  --sombra-hover: 0 9px 26px rgba(16, 43, 69, 0.12);
 }
-
 
 /* =========================
    GERAL
 ========================= */
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
+  margin: 0;
+  min-height: 100vh;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.8),
-            rgba(245, 244, 241, 0.96)
-        );
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(245, 244, 241, 0.96)
+  );
 
-    color: var(--texto);
+  color: var(--texto);
 
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
 }
-
-
-/* =========================
-   CABECALHO
-========================= */
-
-header {
-    width: 100%;
-    min-height: 100px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 18px 4%;
-
-    background-color: var(--branco);
-
-    border-bottom: 1px solid #e8ecef;
-
-    box-shadow: 0 3px 16px rgba(16, 43, 69, 0.07);
-
-    position: relative;
-    z-index: 10;
-}
-
-nav {
-    width: 100%;
-}
-
-nav ul {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-
-    gap: 32px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.logo {
-    flex-shrink: 0;
-}
-
-.logo img {
-    width: 150px;
-    height: auto;
-
-    display: block;
-}
-
-nav a {
-    position: relative;
-
-    color: #28323d;
-
-    font-size: 14px;
-    font-weight: 500;
-
-    text-decoration: none;
-
-    white-space: nowrap;
-
-    transition: color 0.2s ease;
-}
-
-nav a:hover {
-    color: var(--azul);
-}
-
-nav a.carrinho-atual {
-    color: var(--azul);
-
-    font-weight: 700;
-}
-
-nav a.carrinho-atual::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: -10px;
-
-    height: 2px;
-
-    background-color: var(--dourado);
-
-    border-radius: 5px;
-}
-
-
-/* =========================
-   PESQUISA
-========================= */
-
-.pesquisa {
-    flex: 1;
-
-    min-width: 220px;
-    max-width: 500px;
-
-    margin-left: 8px;
-}
-
-.barra-pesquisa {
-    width: 100%;
-    height: 44px;
-
-    display: flex;
-    align-items: center;
-
-    background-color: #fafafa;
-
-    border: 1px solid #d6dce1;
-
-    border-radius: 24px;
-
-    overflow: hidden;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.barra-pesquisa:focus-within {
-    border-color: #aebbc6;
-
-    box-shadow: 0 0 0 3px rgba(16, 43, 69, 0.06);
-}
-
-.barra-pesquisa input {
-    flex: 1;
-
-    width: 100%;
-    height: 100%;
-
-    padding: 0 18px;
-
-    border: none;
-    outline: none;
-
-    background: transparent;
-
-    color: var(--texto);
-
-    font-size: 13px;
-}
-
-.barra-pesquisa input::placeholder {
-    color: #8a949e;
-}
-
-.barra-pesquisa button {
-    width: 48px;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-
-    background: transparent;
-
-    cursor: pointer;
-}
-
 
 /* =========================
    CONTEUDO
 ========================= */
 
 main {
-    width: 94%;
-    max-width: 1750px;
+  width: 94%;
+  max-width: 1750px;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    padding: 40px 0 80px;
+  padding: 40px 0 80px;
 }
-
 
 /* =========================
    CAMINHO
 ========================= */
 
 .caminho {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 9px;
+  gap: 9px;
 
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    color: var(--texto-secundario);
+  color: var(--texto-secundario);
 
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .caminho a {
-    color: #587089;
+  color: #587089;
 
-    font-weight: 600;
+  font-weight: 600;
 
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .caminho a:hover {
-    color: var(--dourado);
+  color: var(--dourado);
 }
 
 .caminho span {
-    color: #aab2ba;
+  color: #aab2ba;
 }
 
 .caminho strong {
-    color: var(--azul);
+  color: var(--azul);
 }
-
 
 /* =========================
    TITULO
 ========================= */
 
 .titulo-pagina {
-    margin-bottom: 34px;
+  margin-bottom: 34px;
 }
 
 .etiqueta {
-    display: inline-block;
+  display: inline-block;
 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 
-    padding: 6px 12px;
+  padding: 6px 12px;
 
-    background-color: var(--dourado-claro);
+  background-color: var(--dourado-claro);
 
-    border: 1px solid #f0d993;
+  border: 1px solid #f0d993;
 
-    border-radius: 5px;
+  border-radius: 5px;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-size: 10px;
-    font-weight: 800;
+  font-size: 10px;
+  font-weight: 800;
 
-    letter-spacing: 1.6px;
+  letter-spacing: 1.6px;
 }
 
 .titulo-pagina h1 {
-    margin: 0;
+  margin: 0;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
 
-    font-size: 48px;
-    font-weight: 700;
+  font-size: 48px;
+  font-weight: 700;
 
-    line-height: 1.08;
+  line-height: 1.08;
 }
 
 .titulo-pagina h1::after {
-    content: "";
+  content: "";
 
-    display: block;
+  display: block;
 
-    width: 58px;
-    height: 3px;
+  width: 58px;
+  height: 3px;
 
-    margin-top: 13px;
+  margin-top: 13px;
 
-    background-color: var(--dourado);
+  background-color: var(--dourado);
 
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .titulo-pagina p {
-    margin: 13px 0 0;
+  margin: 13px 0 0;
 
-    color: var(--texto-secundario);
+  color: var(--texto-secundario);
 
-    font-size: 15px;
+  font-size: 15px;
 }
-
 
 /* =========================
    LAYOUT PRINCIPAL
 ========================= */
 
 .layout-carrinho {
-    display: grid !important;
+  display: grid !important;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        390px !important;
+  grid-template-columns:
+    minmax(0, 1fr)
+    390px !important;
 
-    gap: 32px !important;
+  gap: 32px !important;
 
-    width: 100% !important;
+  width: 100% !important;
 
-    align-items: start !important;
+  align-items: start !important;
 
-    position: relative !important;
+  position: relative !important;
 }
-
 
 /* =========================
    AREA DOS PRODUTOS
 ========================= */
 
 .area-produtos {
-    grid-column: 1 !important;
+  grid-column: 1 !important;
 
-    width: 100% !important;
-    min-width: 0 !important;
+  width: 100% !important;
+  min-width: 0 !important;
 
-    display: block !important;
+  display: block !important;
 
-    position: relative !important;
+  position: relative !important;
 }
-
 
 /* =========================
    CABECALHO DOS PRODUTOS
 ========================= */
 
 .cabecalho-produtos {
-    width: 100%;
+  width: 100%;
 
-    min-height: 94px;
+  min-height: 94px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    padding: 22px 28px;
+  padding: 22px 28px;
 
-    margin-bottom: 17px;
+  margin-bottom: 17px;
 
-    background-color: var(--branco);
+  background-color: var(--branco);
 
-    border: 1px solid var(--borda);
+  border: 1px solid var(--borda);
 
-    border-radius: 11px;
+  border-radius: 11px;
 
-    box-shadow: var(--sombra);
+  box-shadow: var(--sombra);
 }
 
 .cabecalho-produtos h2 {
-    margin: 0 0 6px;
+  margin: 0 0 6px;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
 
-    font-size: 23px;
-    font-weight: 700;
+  font-size: 23px;
+  font-weight: 700;
 }
 
 .cabecalho-produtos p {
-    margin: 0;
+  margin: 0;
 
-    color: var(--texto-secundario);
+  color: var(--texto-secundario);
 
-    font-size: 13px;
+  font-size: 13px;
 }
-
 
 /* =========================
    SELECIONAR TODOS
 ========================= */
 
 .selecionar-todos {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 10px;
+  gap: 10px;
 
-    padding: 9px 13px;
+  padding: 9px 13px;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-size: 13px;
-    font-weight: 600;
+  font-size: 13px;
+  font-weight: 600;
 
-    border-radius: 7px;
+  border-radius: 7px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .selecionar-todos:hover {
-    background-color: var(--dourado-claro);
+  background-color: var(--dourado-claro);
 }
 
 .selecionar-todos input {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 
-    margin: 0;
+  margin: 0;
 
-    accent-color: var(--azul);
+  accent-color: var(--azul);
 
-    cursor: pointer;
+  cursor: pointer;
 }
-
 
 /* =========================
    LISTA
 ========================= */
 
 #lista-carrinho {
-    width: 100%;
+  width: 100%;
 
-    position: relative;
+  position: relative;
 }
-
 
 /* =========================
    CARD DO LIVRO
 ========================= */
 
 .card-carrinho {
-    position: relative;
+  position: relative;
 
-    width: 100%;
-    min-height: 190px;
+  width: 100%;
+  min-height: 190px;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    padding: 28px 30px 28px 35px;
+  padding: 28px 30px 28px 35px;
 
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 
-    background-color: var(--branco);
+  background-color: var(--branco);
 
-    border: 1px solid var(--borda);
+  border: 1px solid var(--borda);
 
-    border-radius: 11px;
+  border-radius: 11px;
 
-    box-shadow: var(--sombra);
+  box-shadow: var(--sombra);
 
-    overflow: hidden;
+  overflow: hidden;
 
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .card-carrinho::before {
-    content: "";
+  content: "";
 
-    position: absolute;
+  position: absolute;
 
-    left: 0;
-    top: 0;
-    bottom: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
 
-    width: 5px;
+  width: 5px;
 
-    background-color: var(--dourado);
+  background-color: var(--dourado);
 }
 
 .card-carrinho:hover {
-    border-color: #cbd4db;
+  border-color: #cbd4db;
 
-    box-shadow: var(--sombra-hover);
+  box-shadow: var(--sombra-hover);
 
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .card-carrinho:has(.selecionar-livro:checked) {
-    border-color: #dfc36d;
+  border-color: #dfc36d;
 
-    background-color: #fffefa;
+  background-color: #fffefa;
 
-    box-shadow:
-        0 8px 25px rgba(16, 43, 69, 0.09),
-        0 0 0 1px rgba(227, 164, 0, 0.13);
+  box-shadow:
+    0 8px 25px rgba(16, 43, 69, 0.09),
+    0 0 0 1px rgba(227, 164, 0, 0.13);
 }
-
 
 /* =========================
    CHECKBOX DO LIVRO
 ========================= */
 
 .selecionar-livro {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 
-    margin: 0 24px 0 0;
+  margin: 0 24px 0 0;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 
-    accent-color: var(--azul);
+  accent-color: var(--azul);
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
+/* =========================
+   CAPA DO LIVRO
+========================= */
+
+.capa-carrinho {
+  flex-shrink: 0;
+
+  margin: 0 24px 0 0;
+}
+
+.capa-carrinho img {
+  width: 92px;
+  height: 136px;
+
+  display: block;
+
+  object-fit: cover;
+
+  background-color: #f5f4f1;
+
+  border-radius: 3px 7px 7px 3px;
+
+  box-shadow:
+    -2px 0 0 rgba(0, 0, 0, 0.12) inset,
+    0 8px 18px rgba(16, 43, 69, 0.25),
+    0 2px 5px rgba(16, 43, 69, 0.18);
+}
 
 /* =========================
    INFORMACOES DO LIVRO
 ========================= */
 
 .info-livro {
-    flex: 1;
+  flex: 1;
 
-    min-width: 0;
+  min-width: 0;
 }
 
 .card-carrinho h2 {
-    margin: 0 0 10px;
+  margin: 0 0 10px;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
 
-    font-size: 22px;
-    font-weight: 700;
+  font-size: 22px;
+  font-weight: 700;
 
-    line-height: 1.25;
+  line-height: 1.25;
 }
 
 .card-carrinho p {
-    margin: 5px 0;
+  margin: 5px 0;
 
-    color: var(--texto-secundario);
+  color: var(--texto-secundario);
 
-    font-size: 14px;
+  font-size: 14px;
 
-    line-height: 1.5;
+  line-height: 1.5;
 }
 
 .card-carrinho .preco {
-    margin-top: 12px;
+  margin-top: 12px;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-size: 17px;
-    font-weight: 800;
+  font-size: 17px;
+  font-weight: 800;
 }
-
 
 /* =========================
    QUANTIDADE
 ========================= */
 
 .quantidade {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    margin: 0 35px;
+  margin: 0 35px;
 
-    border: 1px solid var(--borda);
+  border: 1px solid var(--borda);
 
-    border-radius: 7px;
+  border-radius: 7px;
 
-    background-color: white;
+  background-color: white;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .quantidade button {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 
-    border: none;
+  border: none;
 
-    background-color: white;
+  background-color: white;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-size: 18px;
-    font-weight: 700;
+  font-size: 18px;
+  font-weight: 700;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .quantidade button:hover {
-    background-color: var(--dourado-claro);
+  background-color: var(--dourado-claro);
 
-    color: var(--azul-escuro);
+  color: var(--azul-escuro);
 }
 
 .quantidade span {
-    width: 46px;
-    height: 40px;
+  width: 46px;
+  height: 40px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border-left: 1px solid var(--borda);
-    border-right: 1px solid var(--borda);
+  border-left: 1px solid var(--borda);
+  border-right: 1px solid var(--borda);
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-size: 14px;
-    font-weight: 700;
+  font-size: 14px;
+  font-weight: 700;
 }
-
 
 /* =========================
    PRECO FINAL
 ========================= */
 
 .final-card {
-    width: 150px;
+  width: 150px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .card-carrinho .subtotal {
-    margin: 0 0 10px;
+  margin: 0 0 10px;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-size: 19px;
-    font-weight: 800;
+  font-size: 19px;
+  font-weight: 800;
 }
-
 
 /* =========================
    REMOVER
 ========================= */
 
 .botao-remover {
-    padding: 8px 12px;
+  padding: 8px 12px;
 
-    background-color: #fff8f8;
+  background-color: #fff8f8;
 
-    border: 1px solid #ead6d6;
+  border: 1px solid #ead6d6;
 
-    border-radius: 6px;
+  border-radius: 6px;
 
-    color: var(--vermelho);
+  color: var(--vermelho);
 
-    font-size: 12px;
-    font-weight: 600;
+  font-size: 12px;
+  font-weight: 600;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .botao-remover:hover {
-    background-color: var(--vermelho);
+  background-color: var(--vermelho);
 
-    border-color: var(--vermelho);
+  border-color: var(--vermelho);
 
-    color: white;
+  color: white;
 }
-
 
 /* =========================
    RESUMO
 ========================= */
 
 .resumo {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
+  grid-column: 2 !important;
+  grid-row: 1 !important;
 
-    width: 390px !important;
-    min-width: 390px !important;
+  width: 390px !important;
+  min-width: 390px !important;
 
-    height: auto !important;
+  height: auto !important;
 
-    position: relative !important;
+  position: relative !important;
 
-    top: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    left: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
 
-    float: none !important;
+  float: none !important;
 
-    align-self: start !important;
+  align-self: start !important;
 
-    margin: 0 !important;
-    padding: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 
-    background-color: var(--branco);
+  background-color: var(--branco);
 
-    border: 1px solid var(--borda);
+  border: 1px solid var(--borda);
 
-    border-radius: 11px;
+  border-radius: 11px;
 
-    box-shadow: var(--sombra);
+  box-shadow: var(--sombra);
 
-    overflow: hidden;
+  overflow: hidden;
 }
-
 
 /* =========================
    TOPO DO RESUMO
 ========================= */
 
 .resumo-topo {
-    padding: 30px 31px 27px;
+  padding: 30px 31px 27px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--azul-escuro),
-            var(--azul)
-        );
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul));
 
-    color: white;
+  color: white;
 }
 
 .resumo-etiqueta {
-    color: var(--dourado);
+  color: var(--dourado);
 
-    font-size: 10px;
-    font-weight: 800;
+  font-size: 10px;
+  font-weight: 800;
 
-    letter-spacing: 1.7px;
+  letter-spacing: 1.7px;
 }
 
 .resumo h2 {
-    margin: 9px 0 0;
+  margin: 9px 0 0;
 
-    color: white;
+  color: white;
 
-    font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
 
-    font-size: 26px;
-    font-weight: 700;
+  font-size: 26px;
+  font-weight: 700;
 }
-
 
 /* =========================
    CONTEUDO DO RESUMO
 ========================= */
 
 .resumo-conteudo {
-    padding: 30px 31px;
+  padding: 30px 31px;
 }
-
 
 /* =========================
    LINHAS
 ========================= */
 
 .resumo-linha {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    margin-bottom: 19px;
+  margin-bottom: 19px;
 
-    color: var(--texto-secundario);
+  color: var(--texto-secundario);
 
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .resumo-linha strong {
-    color: var(--texto);
+  color: var(--texto);
 
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .resumo-linha .frete {
-    color: var(--verde);
+  color: var(--verde);
 
-    font-weight: 700;
+  font-weight: 700;
 }
-
 
 /* =========================
    DIVISORIA
 ========================= */
 
 .linha {
-    width: 100%;
-    height: 1px;
+  width: 100%;
+  height: 1px;
 
-    margin: 24px 0;
+  margin: 24px 0;
 
-    background-color: var(--borda);
+  background-color: var(--borda);
 }
-
 
 /* =========================
    TOTAL
 ========================= */
 
 .resumo-total {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 
-    color: var(--azul);
+  color: var(--azul);
 
-    font-size: 16px;
-    font-weight: 700;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .resumo-total strong {
-    color: var(--azul);
+  color: var(--azul);
 
-    font-size: 29px;
-    font-weight: 800;
+  font-size: 29px;
+  font-weight: 800;
 }
-
 
 /* =========================
    FINALIZAR
 ========================= */
 
 .botao-finalizar {
-    width: 100%;
-    height: 54px;
+  width: 100%;
+  height: 54px;
 
-    border: none;
+  border: none;
 
-    border-radius: 7px;
+  border-radius: 7px;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--azul-escuro),
-            var(--azul)
-        );
+  background: linear-gradient(90deg, var(--azul-escuro), var(--azul));
 
-    color: white;
+  color: white;
 
-    font-size: 15px;
-    font-weight: 700;
+  font-size: 15px;
+  font-weight: 700;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    box-shadow: 0 6px 16px rgba(11, 33, 54, 0.17);
+  box-shadow: 0 6px 16px rgba(11, 33, 54, 0.17);
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .botao-finalizar:hover {
-    background:
-        linear-gradient(
-            90deg,
-            var(--azul),
-            var(--azul-claro)
-        );
+  background: linear-gradient(90deg, var(--azul), var(--azul-claro));
 
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 
-    box-shadow: 0 9px 21px rgba(11, 33, 54, 0.22);
+  box-shadow: 0 9px 21px rgba(11, 33, 54, 0.22);
 }
 
 .botao-finalizar:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
-
 
 /* =========================
    CONTINUAR COMPRANDO
 ========================= */
 
 .continuar {
-    display: block;
+  display: block;
 
-    margin-top: 18px;
+  margin-top: 18px;
 
-    color: var(--texto-secundario);
+  color: var(--texto-secundario);
 
-    font-size: 13px;
-    font-weight: 600;
+  font-size: 13px;
+  font-weight: 600;
 
-    text-align: center;
+  text-align: center;
 
-    text-decoration: none;
+  text-decoration: none;
 
-    transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .continuar:hover {
-    color: var(--dourado);
+  color: var(--dourado);
 }
-
 
 /* =========================
    COMPRA SEGURA
 ========================= */
 
 .compra-segura {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 12px;
+  gap: 12px;
 
-    margin-top: 27px;
+  margin-top: 27px;
 
-    padding: 15px;
+  padding: 15px;
 
-    background-color: #edf8f2;
+  background-color: #edf8f2;
 
-    border: 1px solid #d9eee2;
+  border: 1px solid #d9eee2;
 
-    border-radius: 7px;
+  border-radius: 7px;
 }
 
 .icone-seguro {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background-color: #d9eee2;
+  background-color: #d9eee2;
 
-    color: var(--verde);
+  color: var(--verde);
 
-    font-size: 14px;
-    font-weight: 800;
+  font-size: 14px;
+  font-weight: 800;
 }
 
 .compra-segura strong {
-    display: block;
+  display: block;
 
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 
-    color: var(--verde);
+  color: var(--verde);
 
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .compra-segura p {
-    margin: 0;
+  margin: 0;
 
-    color: var(--texto-secundario);
+  color: var(--texto-secundario);
 
-    font-size: 10px;
+  font-size: 10px;
 
-    line-height: 1.4;
+  line-height: 1.4;
 }
-
 
 /* =========================
    RODAPE DO RESUMO
 ========================= */
 
 .resumo-rodape {
-    padding: 18px 31px;
+  padding: 18px 31px;
 
-    border-top: 1px solid var(--borda);
+  border-top: 1px solid var(--borda);
 
-    color: #8a949e;
+  color: #8a949e;
 
-    font-size: 10px;
+  font-size: 10px;
 
-    letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
 }
 
 .resumo-rodape span {
-    display: block;
+  display: block;
 
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .resumo-rodape span:first-child {
-    color: var(--azul);
+  color: var(--azul);
 
-    font-weight: 800;
+  font-weight: 800;
 }
-
 
 /* =========================
    CARRINHO VAZIO
 ========================= */
 
 #lista-carrinho > p {
-    width: 100%;
+  width: 100%;
 
-    margin: 0;
+  margin: 0;
 
-    padding: 90px 20px;
+  padding: 90px 20px;
 
-    background-color: var(--branco);
+  background-color: var(--branco);
 
-    border: 1px solid var(--borda);
+  border: 1px solid var(--borda);
 
-    border-radius: 11px;
+  border-radius: 11px;
 
-    box-shadow: var(--sombra);
+  box-shadow: var(--sombra);
 
-    color: var(--texto-secundario);
+  color: var(--texto-secundario);
 
-    font-size: 17px;
+  font-size: 17px;
 
-    text-align: center;
+  text-align: center;
 }

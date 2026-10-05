@@ -1,0 +1,614 @@
+/* =====================================================
+   BOOK'S WORLD - CARDS DE LIVROS (página inicial)
+===================================================== */
+
+.lista-livros-index {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 4% 60px;
+}
+
+.lista-livros-index h2 {
+  margin: 0 0 30px;
+  color: #102b45;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+}
+
+.lista-livros-index h2::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-top: 10px;
+  background-color: #e3a400;
+  border-radius: 5px;
+}
+
+/* ---------- GRADE ---------- */
+
+#lista-livros-index,
+#lista-livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 26px;
+}
+
+/* ---------- CARD ---------- */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #e6e2da;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(16, 43, 69, 0.06);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #e3c872;
+  box-shadow: 0 16px 34px rgba(16, 43, 69, 0.16);
+}
+
+/* ---------- SELO "MAIS VENDIDO" ---------- */
+
+.selo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 5px 10px;
+  background-color: #e3a400;
+  border-radius: 5px;
+  color: #102b45;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- CAPA ---------- */
+
+.card-capa {
+  height: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px 22px;
+  background: radial-gradient(ellipse at 50% 35%, #fbf8f1 0%, #efe9dc 100%);
+}
+
+.card-capa img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 3px 7px 7px 3px;
+  box-shadow:
+    -2px 0 0 rgba(0, 0, 0, 0.12) inset,
+    0 10px 22px rgba(16, 43, 69, 0.3),
+    0 3px 6px rgba(16, 43, 69, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-capa img {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+/* ---------- CONTEÚDO ---------- */
+
+.card-conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 20px;
+}
+
+.card-conteudo .categoria {
+  align-self: flex-start;
+  margin: 0 0 10px;
+  padding: 4px 10px;
+  background-color: #fff5d9;
+  border: 1px solid #f0d993;
+  border-radius: 20px;
+  color: #7a5a00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.card-conteudo h3 {
+  margin: 0 0 6px;
+  color: #102b45;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.3;
+
+  /* 2 linhas no máximo, para os cards ficarem alinhados */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6em;
+}
+
+.card-conteudo .autor {
+  margin: 0;
+  color: #6a7887;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.card-conteudo .preco {
+  margin: 16px 0 14px;
+  padding-top: 14px;
+  border-top: 1px solid #eee9df;
+  color: #102b45;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* ---------- BOTÃO ---------- */
+
+.card-conteudo button {
+  width: 100%;
+  margin-top: auto;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0b2136, #102b45);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.card-conteudo button svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.card-conteudo button:hover {
+  background: linear-gradient(90deg, #e3a400, #f0b92a);
+  color: #102b45;
+}
+
+.card-conteudo button:active {
+  transform: scale(0.97);
+}
+
+.card-conteudo button:focus-visible {
+  outline: 3px solid #e3a400;
+  outline-offset: 2px;
+}
+
+/* botão depois de clicar */
+.card-conteudo button.adicionado {
+  background: #16865b;
+  color: #ffffff;
+}
+
+/* ---------- BOTÃO "VER MAIS" ---------- */
+
+#verMais {
+  display: block;
+  margin: 40px auto 0;
+  padding: 14px 36px;
+  background-color: #ffffff;
+  border: 2px solid #102b45;
+  border-radius: 8px;
+  color: #102b45;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#verMais:hover {
+  background-color: #102b45;
+  color: #ffffff;
+}
+
+/* ---------- CELULAR ---------- */
+
+@media (max-width: 600px) {
+  #lista-livros-index,
+  #lista-livros {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .card-capa {
+    height: 220px;
+    padding: 20px 14px 14px;
+  }
+
+  .card-conteudo {
+    padding: 12px 12px 14px;
+  }
+
+  .card-conteudo h3 {
+    font-size: 15px;
+  }
+
+  .card-conteudo .preco {
+    font-size: 19px;
+    margin: 10px 0;
+    padding-top: 10px;
+  }
+
+  .card-conteudo button {
+    font-size: 12px;
+    padding: 10px 6px;
+  }
+
+  .card-conteudo button svg {
+    display: none;
+  }
+}
+
+/* =====================================================
+   PÁGINAS MAIS VENDIDOS, GÊNEROS, AUTORES E BUSCA (título e largura;
+   os cards usam o mesmo estilo de cima)
+===================================================== */
+
+main.lista-mais-vendidos,
+main.pagina-generos,
+main.pagina-autores,
+main.pagina-busca {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 50px 4% 80px;
+}
+
+main.lista-mais-vendidos h1,
+main.pagina-generos h1,
+main.pagina-autores h1,
+main.pagina-busca h1 {
+  margin: 0 0 40px;
+  text-align: center;
+  color: #102b45;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4vw, 50px);
+}
+
+main.lista-mais-vendidos h1::after,
+main.pagina-generos h1::after,
+main.pagina-autores h1::after,
+main.pagina-busca h1::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin: 14px auto 0;
+  background-color: #e3a400;
+  border-radius: 5px;
+}
+
+#lista-livros > p {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #6a7887;
+  font-size: 17px;
+}
+
+/* =====================================================
+   PÁGINA GÊNEROS (filtro por categoria)
+===================================================== */
+
+#filtro-generos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 26px;
+  max-width: 1100px;
+}
+
+.chip-genero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  background-color: #ffffff;
+  border: 1px solid #dce2e7;
+  border-radius: 30px;
+  color: #102b45;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.chip-genero span {
+  padding: 2px 8px;
+  background-color: #f5f4f1;
+  border-radius: 20px;
+  color: #6a7887;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.chip-genero:hover {
+  border-color: #e3a400;
+  background-color: #fff5d9;
+}
+
+.chip-genero:active {
+  transform: scale(0.97);
+}
+
+.chip-genero:focus-visible {
+  outline: 3px solid #e3a400;
+  outline-offset: 2px;
+}
+
+.chip-genero.ativo {
+  background-color: #102b45;
+  border-color: #102b45;
+  color: #ffffff;
+}
+
+.chip-genero.ativo span {
+  background-color: #e3a400;
+  color: #102b45;
+}
+
+#contador-livros {
+  margin: 0 0 22px;
+  color: #6a7887;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #filtro-generos {
+    gap: 8px;
+  }
+
+  .chip-genero {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}
+
+/* =====================================================
+   PÁGINA AUTORES
+===================================================== */
+
+/* garante que o atributo hidden esconda mesmo com display:grid */
+[hidden] {
+  display: none !important;
+}
+
+.busca-autor {
+  max-width: 520px;
+  margin: 0 auto 14px;
+}
+
+.busca-autor input {
+  width: 100%;
+  height: 48px;
+  padding: 0 20px;
+  background-color: #ffffff;
+  border: 1px solid #dce2e7;
+  border-radius: 30px;
+  color: #17283a;
+  font-size: 15px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.busca-autor input:focus {
+  border-color: #e3a400;
+  box-shadow: 0 0 0 3px rgba(227, 164, 0, 0.2);
+}
+
+#contador-autores {
+  margin: 0 0 24px;
+  color: #6a7887;
+  font-size: 14px;
+  text-align: center;
+}
+
+#lista-autores {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+#lista-autores > p {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #6a7887;
+  font-size: 17px;
+}
+
+.card-autor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background-color: #ffffff;
+  border: 1px solid #e6e2da;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(16, 43, 69, 0.06);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card-autor:hover {
+  transform: translateY(-4px);
+  border-color: #e3c872;
+  box-shadow: 0 12px 26px rgba(16, 43, 69, 0.14);
+}
+
+.card-autor:focus-visible {
+  outline: 3px solid #e3a400;
+  outline-offset: 2px;
+}
+
+.avatar-autor {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0b2136, #1d456b);
+  border: 2px solid #e3a400;
+  border-radius: 50%;
+  color: #e3a400;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.info-autor {
+  min-width: 0;
+}
+
+.info-autor strong {
+  display: block;
+  color: #102b45;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.info-autor span {
+  display: block;
+  margin-top: 3px;
+  color: #6a7887;
+  font-size: 13px;
+}
+
+/* ----- livros de um autor ----- */
+
+.voltar-autores {
+  margin: 0 0 18px;
+  padding: 9px 16px;
+  background-color: #ffffff;
+  border: 1px solid #dce2e7;
+  border-radius: 30px;
+  color: #102b45;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.voltar-autores:hover {
+  background-color: #fff5d9;
+  border-color: #e3a400;
+}
+
+#nome-autor {
+  margin: 0 0 6px;
+  color: #102b45;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #lista-autores {
+    grid-template-columns: 1fr;
+  }
+
+  #nome-autor {
+    font-size: 24px;
+  }
+}
+
+/* =====================================================
+   PÁGINA DE BUSCA
+===================================================== */
+
+/* remove o "x" nativo do campo type="search" no menu */
+.menu-principal
+  .barra-pesquisa
+  input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+#sem-resultados {
+  max-width: 520px;
+  margin: 10px auto 0;
+  padding: 40px 24px;
+  background-color: #ffffff;
+  border: 1px solid #e6e2da;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(16, 43, 69, 0.06);
+  text-align: center;
+}
+
+#sem-resultados strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #102b45;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
+#sem-resultados p {
+  margin: 0 0 16px;
+  color: #6a7887;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#sem-resultados a {
+  display: inline-block;
+  margin: 0 6px;
+  padding: 9px 18px;
+  background-color: #102b45;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#sem-resultados a:hover {
+  background-color: #e3a400;
+  color: #102b45;
+}

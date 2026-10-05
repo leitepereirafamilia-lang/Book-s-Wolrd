@@ -1,564 +1,326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Pagamento | BooksWorld</title>
 
-    <link rel="stylesheet" href="css/pagamento.css">
+    <link rel="stylesheet" href="css/pagamento.css" />
+    <link rel="stylesheet" href="css/menu.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-</head>
+  </head>
 
-<body>
-
-    <!-- CABEÇALHO -->
-   <header>
-
-    <nav>
-
-        <ul>
-
-            <li class="logo">
-                <img
-                    src="a_clean_transparent_background_logo_graphic_file_c.png"
-                    alt="Book's World"
-                >
-            </li>
-
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
-
-            <li>
-                <a href="#">Generos</a>
-            </li>
-
-            <li>
-                <a href="#">Autores</a>
-            </li>
-
-            <li>
-                <a href="#">Promocoes</a>
-            </li>
-
-            <li>
-                <a href="#">Mais vendidos</a>
-            </li>
-
-            <li class="pesquisa">
-
-                <div class="barra-pesquisa">
-
-                    <input
-                        type="text"
-                        placeholder="Buscar livros, autores..."
-                    >
-
-                    <button>
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            width="17"
-                            height="17"
-                        >
-
-                            <circle
-                                cx="11"
-                                cy="11"
-                                r="7"
-                                fill="none"
-                                stroke="#333"
-                                stroke-width="1.5"
-                            />
-
-                            <line
-                                x1="16"
-                                y1="16"
-                                x2="21"
-                                y2="21"
-                                stroke="#333"
-                                stroke-width="1.5"
-                            />
-
-                        </svg>
-
-                    </button>
-
-                </div>
-
-            </li>
-
-            <li>
-                <a href="#">Minha conta</a>
-            </li>
-
-            <li>
-                <a href="carrinho.html">
-                    Meu carrinho
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-    <nav>
-
-        <ul>
-
-            <li class="logo">
-                <img
-                    src="a_clean_transparent_background_logo_graphic_file_c.png"
-                    alt="Book's World"
-                >
-            </li>
-
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
-
-            <li>
-                <a href="#">Generos</a>
-            </li>
-
-            <li>
-                <a href="#">Autores</a>
-            </li>
-
-            <li>
-                <a href="#">Promocoes</a>
-            </li>
-
-            <li>
-                <a href="#">Mais vendidos</a>
-            </li>
-
-            <li class="pesquisa">
-
-                <div class="barra-pesquisa">
-
-                    <input
-                        type="text"
-                        placeholder="Buscar livros, autores..."
-                    >
-
-                    <button>
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            width="17"
-                            height="17"
-                        >
-
-                            <circle
-                                cx="11"
-                                cy="11"
-                                r="7"
-                                fill="none"
-                                stroke="#333"
-                                stroke-width="1.5"
-                            />
-
-                            <line
-                                x1="16"
-                                y1="16"
-                                x2="21"
-                                y2="21"
-                                stroke="#333"
-                                stroke-width="1.5"
-                            />
-
-                        </svg>
-
-                    </button>
-
-                </div>
-
-            </li>
-
-            <li>
-                <a href="#">Minha conta</a>
-            </li>
-
-            <li>
-                <a href="carrinho.html">
-                    Meu carrinho
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
+  <body class="pagina-pagamento">
+    <script src="js/menu.js"></script>
 
     <main class="pagina">
+      <!-- CAMINHO -->
+      <div class="breadcrumb">
+        <a href="carrinho.html">Carrinho</a>
+        <span>›</span>
+        <strong>Pagamento</strong>
+      </div>
 
-        <!-- CAMINHO -->
-        <div class="breadcrumb">
-            <a href="carrinho.html">Carrinho</a>
-            <span>›</span>
-            <strong>Pagamento</strong>
-        </div>
+      <!-- TÍTULO -->
+      <div class="titulo">
+        <h1>Pagamento</h1>
 
+        <p>Confira os dados do seu pedido e escolha a forma de pagamento.</p>
+      </div>
 
-        <!-- TÍTULO -->
-        <div class="titulo">
+      <!-- ÁREA PRINCIPAL -->
+      <div class="checkout">
+        <!-- PAGAMENTO -->
+        <section class="area-pagamento">
+          <!-- ENTREGA -->
+          <div class="card">
+            <div class="titulo-card">
+              <span>🚚</span>
 
-            <h1>Pagamento</h1>
+              <h2>Informações de entrega</h2>
 
-            <p>
-                Confira os dados do seu pedido e escolha a forma de pagamento.
-            </p>
+              <button class="alterar" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 20h4L19 9l-4-4L4 16v4z" />
+                  <path d="M13.5 6.5l4 4" />
+                </svg>
+                Alterar dados
+              </button>
+            </div>
 
-        </div>
+            <div class="dados-entrega">
+              <div class="linha-entrega">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21c0-4 4-7 8-7s8 3 8 7" />
+                </svg>
+                <strong>Maria Eduarda Silva</strong>
+              </div>
 
-
-        <!-- ÁREA PRINCIPAL -->
-        <div class="checkout">
-
-
-            <!-- PAGAMENTO -->
-            <section class="area-pagamento">
-
-                <!-- ENTREGA -->
-                <div class="card">
-
-                    <div class="titulo-card">
-
-                        <span>🚚</span>
-
-                        <h2>Informações de entrega</h2>
-
-                        <button class="alterar" type="button">
-                            Alterar dados
-                        </button>
-
-                    </div>
-
-                    <div class="dados-entrega">
-
-                        <strong>Maria Eduarda Silva</strong>
-
-                        <span>
-                            Rua das Flores, 123 - Centro
-                        </span>
-
-                        <span>
-                            São Paulo - SP • 01000-000
-                        </span>
-
-                        <span>
-                            (11) 98765-4321
-                        </span>
-
-                    </div>
-
+              <div class="linha-entrega">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+                <div>
+                  <strong>Rua das Flores, 123 - Centro</strong>
+                  <span>São Paulo - SP • 01000-000</span>
                 </div>
-
-
-                <!-- FORMAS DE PAGAMENTO -->
-                <div class="card">
-
-                    <div class="titulo-card">
-
-                        <span>💳</span>
-
-                        <h2>Forma de pagamento</h2>
-
-                    </div>
-
-
-                    <div class="metodos">
-
-                        <button
-                            type="button"
-                            class="metodo"
-                            onclick="mostrarPix()">
-
-                            <span>▦</span>
-
-                            PIX
-
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="metodo"
-                            onclick="mostrarCredito()">
-
-                            <span>💳</span>
-
-                            Crédito
-
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="metodo"
-                            onclick="mostrarDebito()">
-
-                            <span>💳</span>
-
-                            Débito
-
-                        </button>
-
-                    </div>
-
-
-                    <!-- O JAVASCRIPT COLOCA OS FORMULÁRIOS AQUI -->
-
-                    <div id="pix"></div>
-
-                    <div id="credito"></div>
-
-                    <div id="debito"></div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- RESUMO -->
-            <aside class="resumo">
-
-                <div class="resumo-card">
-
-                    <div class="resumo-titulo">
-
-                        <h2>🛍 Seu pedido</h2>
-
-                        <span id="quantidade-pedido">
-                            (0 itens)
-                        </span>
-
-                    </div>
-
-
-                    <!-- PRODUTOS -->
-                    <div id="itens-resumo">
-
-                        <p>Carregando pedido...</p>
-
-                    </div>
-
-
-                    <!-- VALORES -->
-                    <div class="valores">
-
-                        <div>
-                            <span>Subtotal</span>
-
-                            <strong id="subtotal-resumo">
-                                R$ 0,00
-                            </strong>
-                        </div>
-
-
-                        <div>
-                            <span>Frete</span>
-
-                            <strong>
-                                R$ 9,90
-                            </strong>
-                        </div>
-
-                    </div>
-
-
-                    <!-- TOTAL -->
-                    <div class="total">
-
-                        <span>Total</span>
-
-                        <strong id="total-resumo">
-                            R$ 0,00
-                        </strong>
-
-                    </div>
-
-
-                    <!-- SEGURANÇA -->
-                    <div class="seguro">
-
-                        <span>🛡️</span>
-
-                        <div>
-
-                            <strong>
-                                Compra segura
-                            </strong>
-
-                            <small>
-                                Seus dados estão protegidos e criptografados.
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-                    <a
-                        href="carrinho.html"
-                        class="voltar">
-
-                        ← Continuar comprando
-
-                    </a>
-
-                </div>
-
-
-                <div class="frase">
-
-                    📚
-
-                    <strong>
-                        Grandes histórias
-                        <br>
-                        começam com um
-                        <br>
-                        simples clique.
-                    </strong>
-
-                    ❤️
-
-                </div>
-
-            </aside>
-
-        </div>
-
+              </div>
+
+              <div class="linha-entrega">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"
+                  />
+                </svg>
+                <span>(11) 98765-4321</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORMAS DE PAGAMENTO -->
+          <div class="card">
+            <div class="titulo-card">
+              <span>💳</span>
+
+              <h2>Forma de pagamento</h2>
+            </div>
+
+            <div class="metodos">
+              <button
+                type="button"
+                class="metodo"
+                data-metodo="pix"
+                onclick="mostrarPix()"
+              >
+                <span>▦</span>
+
+                PIX
+              </button>
+
+              <button
+                type="button"
+                class="metodo"
+                data-metodo="credito"
+                onclick="mostrarCredito()"
+              >
+                <span>💳</span>
+
+                Crédito
+              </button>
+
+              <button
+                type="button"
+                class="metodo"
+                data-metodo="debito"
+                onclick="mostrarDebito()"
+              >
+                <span>💳</span>
+
+                Débito
+              </button>
+            </div>
+
+            <!-- O JAVASCRIPT COLOCA OS FORMULÁRIOS AQUI -->
+
+            <div id="pix"></div>
+
+            <div id="credito"></div>
+
+            <div id="debito"></div>
+          </div>
+        </section>
+
+        <!-- RESUMO -->
+        <aside class="resumo">
+          <div class="resumo-card">
+            <div class="resumo-titulo">
+              <h2>🛍 Seu pedido</h2>
+
+              <span id="quantidade-pedido"> (0 itens) </span>
+            </div>
+
+            <!-- PRODUTOS -->
+            <div id="itens-resumo">
+              <p>Carregando pedido...</p>
+            </div>
+
+            <!-- VALORES -->
+            <div class="valores">
+              <div>
+                <span>Subtotal</span>
+
+                <strong id="subtotal-resumo"> R$ 0,00 </strong>
+              </div>
+
+              <div>
+                <span>Frete</span>
+
+                <strong> R$ 9,90 </strong>
+              </div>
+            </div>
+
+            <!-- TOTAL -->
+            <div class="total">
+              <span>Total</span>
+
+              <strong id="total-resumo"> R$ 0,00 </strong>
+            </div>
+
+            <!-- SEGURANÇA -->
+            <div class="seguro">
+              <span>🛡️</span>
+
+              <div>
+                <strong> Compra segura </strong>
+
+                <small> Seus dados estão protegidos e criptografados. </small>
+              </div>
+            </div>
+
+            <a href="carrinho.html" class="voltar"> ← Continuar comprando </a>
+          </div>
+
+          <div class="frase">
+            📚
+
+            <strong>
+              Grandes histórias
+              <br />
+              começam com um
+              <br />
+              simples clique.
+            </strong>
+
+            ❤️
+          </div>
+        </aside>
+      </div>
     </main>
-
 
     <!-- RODAPÉ -->
     <footer>
+      <div>
+        <strong>📖 Book's World</strong>
 
-        <div>
-            <strong>📖 Book's World</strong>
+        <p>
+          Aqui você encontra histórias que inspiram, emocionam e transformam.
+        </p>
+      </div>
 
-            <p>
-                Aqui você encontra histórias que
-                inspiram, emocionam e transformam.
-            </p>
-        </div>
+      <div>
+        <strong>Institucional</strong>
 
+        <a href="#">Sobre Nós</a>
 
-        <div>
+        <a href="#">Política de Privacidade</a>
 
-            <strong>Institucional</strong>
+        <a href="#">Termos de Uso</a>
+      </div>
 
-            <a href="#">Sobre Nós</a>
+      <div>
+        <strong>Ajuda</strong>
 
-            <a href="#">Política de Privacidade</a>
+        <a href="#">Central de Ajuda</a>
 
-            <a href="#">Termos de Uso</a>
+        <a href="#">Trocas e Devoluções</a>
 
-        </div>
+        <a href="#">Formas de Pagamento</a>
+      </div>
 
+      <div>
+        <strong>Siga-nos</strong>
 
-        <div>
-
-            <strong>Ajuda</strong>
-
-            <a href="#">Central de Ajuda</a>
-
-            <a href="#">Trocas e Devoluções</a>
-
-            <a href="#">Formas de Pagamento</a>
-
-        </div>
-
-
-        <div>
-
-            <strong>Siga-nos</strong>
-
-            <p>●　●　●</p>
-
-        </div>
-
+        <p>●　●　●</p>
+      </div>
     </footer>
 
-
     <!-- SEU JAVASCRIPT -->
+    <script src="js/livros.js"></script>
     <script src="js/pagamento.js"></script>
-
 
     <!-- RESUMO DO CARRINHO -->
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-        document.addEventListener("DOMContentLoaded", function () {
+        const selecionados =
+          JSON.parse(localStorage.getItem("selecionados")) || [];
 
-            const carrinho =
-                JSON.parse(localStorage.getItem("carrinho")) || [];
+        const itens = carrinho.filter((item) =>
+          selecionados.includes(item.livro.id),
+        );
 
-            const selecionados =
-                JSON.parse(localStorage.getItem("selecionados")) || [];
+        const lista = document.getElementById("itens-resumo");
 
+        const quantidade = document.getElementById("quantidade-pedido");
 
-            const itens = carrinho.filter(item =>
-                selecionados.includes(item.livro.id)
-            );
+        const subtotal = document.getElementById("subtotal-resumo");
 
+        const total = document.getElementById("total-resumo");
 
-            const lista =
-                document.getElementById("itens-resumo");
+        lista.innerHTML = "";
 
-            const quantidade =
-                document.getElementById("quantidade-pedido");
+        let valorTotal = 0;
 
-            const subtotal =
-                document.getElementById("subtotal-resumo");
+        let quantidadeTotal = 0;
 
-            const total =
-                document.getElementById("total-resumo");
+        if (itens.length === 0) {
+          lista.innerHTML = "<p>Nenhum item selecionado.</p>";
+        }
 
+        itens.forEach((item) => {
+          const preco = Number(item.livro.preco) || 0;
 
-            lista.innerHTML = "";
+          const valor = preco * item.quantidade;
 
+          // Capa salva no carrinho; se for item antigo, procura no livros.js
+          const dadosAtuais =
+            typeof livros !== "undefined"
+              ? livros.find((l) => l.id === item.livro.id)
+              : null;
 
-            let valorTotal = 0;
+          const imagem =
+            item.livro.imagem ||
+            (dadosAtuais && dadosAtuais.imagem) ||
+            "IMG/livro-sem-capa.png";
 
-            let quantidadeTotal = 0;
+          // Avaliação: só aparece se o livro tiver "nota" (e "avaliacoes") no livros.js
+          const nota = item.livro.nota ?? (dadosAtuais && dadosAtuais.nota);
+          const numAvaliacoes =
+            item.livro.avaliacoes ?? (dadosAtuais && dadosAtuais.avaliacoes);
 
+          let avaliacao = "";
 
-            if (itens.length === 0) {
+          if (nota) {
+            const cheias = Math.round(nota);
 
-                lista.innerHTML =
-                    "<p>Nenhum item selecionado.</p>";
+            avaliacao = `
+              <span class="avaliacao">
+                <span class="estrelas">${"★".repeat(cheias)}${"☆".repeat(5 - cheias)}</span>
+                ${String(nota).replace(".", ",")}
+                ${numAvaliacoes ? `(${Number(numAvaliacoes).toLocaleString("pt-BR")})` : ""}
+              </span>
+            `;
+          }
 
-            }
+          valorTotal += valor;
 
+          quantidadeTotal += item.quantidade;
 
-            itens.forEach(item => {
-
-                const preco =
-                    Number(item.livro.preco) || 0;
-
-                const valor =
-                    preco * item.quantidade;
-
-
-                valorTotal += valor;
-
-                quantidadeTotal += item.quantidade;
-
-
-                lista.innerHTML += `
+          lista.innerHTML += `
 
                     <div class="item">
 
                         <div class="capa">
-                            📖
+                            <img
+                                src="${imagem}"
+                                alt="Capa do livro ${item.livro.titulo}"
+                                onerror="this.onerror=null; this.src='IMG/livro-sem-capa.png'"
+                            >
                         </div>
 
                         <div class="dados-livro">
@@ -572,55 +334,38 @@
                             </small>
 
                             <small>
-                                Quantidade: ${item.quantidade}
+                                ${item.livro.categoria || ""}
+                            </small>
+
+                            ${avaliacao}
+
+                            <strong class="preco">
+                                R$ ${valor.toFixed(2).replace(".", ",")}
+                            </strong>
+
+                            <small>
+                                Qtd: ${item.quantidade}
                             </small>
 
                         </div>
 
-                        <strong class="preco">
-                            R$ ${valor
-                                .toFixed(2)
-                                .replace(".", ",")}
-                        </strong>
-
                     </div>
 
                 `;
-
-            });
-
-
-            const frete =
-                itens.length > 0 ? 9.90 : 0;
-
-
-            const valorFinal =
-                valorTotal + frete;
-
-
-            quantidade.textContent =
-                `(${quantidadeTotal} ${
-                    quantidadeTotal === 1
-                        ? "item"
-                        : "itens"
-                })`;
-
-
-            subtotal.textContent =
-                `R$ ${valorTotal
-                    .toFixed(2)
-                    .replace(".", ",")}`;
-
-
-            total.textContent =
-                `R$ ${valorFinal
-                    .toFixed(2)
-                    .replace(".", ",")}`;
-
         });
 
+        const frete = itens.length > 0 ? 9.9 : 0;
+
+        const valorFinal = valorTotal + frete;
+
+        quantidade.textContent = `(${quantidadeTotal} ${
+          quantidadeTotal === 1 ? "item" : "itens"
+        })`;
+
+        subtotal.textContent = `R$ ${valorTotal.toFixed(2).replace(".", ",")}`;
+
+        total.textContent = `R$ ${valorFinal.toFixed(2).replace(".", ",")}`;
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
