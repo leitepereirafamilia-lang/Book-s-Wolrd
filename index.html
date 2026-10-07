@@ -1,67 +1,77 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
     <title>Book's World</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/style-inicio.css" />
-    <link rel="stylesheet" href="css/menu.css" />
-    <link rel="stylesheet" href="css/livros.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-
+  <script src="js/banner.js"></script>
   <body>
-    <!-- <img src="IMG/capas/hoobit.jpeg" width="200" /> -->
-    <script src="js/menu.js"></script>
+    <header>
+      <nav>
+        <ul>
+          <li class="logo">
+            <img
+              src="a_clean_transparent_background_logo_graphic_file_c.png.png"
+              alt="Book's World"
+            />
+          </li>
 
-    <section class="banner-anuncios">
-      <div class="banner-container">
-        <div class="banner-track" id="bannerTrack">
-          <!-- BANNER 1 -->
-          <a href="promocoes.html" class="banner-slide">
-            <img src="IMG/banner1.jpg" alt="Kit pré-venda Carmilla" />
-          </a>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="generos.html">Gêneros</a></li>
+          <li><a href="autores.html">Autores</a></li>
+          <li><a href="promocoes.html">Promoções</a></li>
+          <li><a href="maisvendidos.html">Mais vendidos</a></li>
 
-          <!-- BANNER 2 -->
-          <a href="lancamentos.html" class="banner-slide">
-            <img src="IMG/banner2.jpg" alt="Lançamento Harry Potter" />
-          </a>
+          <li class="pesquisa">
+            <div class="barra-pesquisa">
+              <input
+                type="text"
+                id="campoBusca"
+                placeholder="Buscar livros, autores..."
+              />
 
-          <!-- BANNER 3 -->
-          <a href="promocoes.html" class="banner-slide">
-            <img src="IMG/banner3.jpg" alt="Promoções Book's World" />
-          </a>
-        </div>
+              <button id="botaoBusca" type="button">
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="1.5"
+                  />
 
-        <!-- BOTÃO ESQUERDA -->
-        <button
-          class="banner-btn banner-anterior"
-          onclick="mudarBanner(-1)"
-          aria-label="Banner anterior"
-        >
-          &#10094;
-        </button>
+                  <line
+                    x1="16"
+                    y1="16"
+                    x2="21"
+                    y2="21"
+                    stroke="#333"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </button>
+            </div>
+          </li>
+          <li>
+            <a href="minhaconta.html">
+              <img src="icone_conta.png" alt="Minha conta" />
+              Minha conta
+            </a>
+          </li>
 
-        <!-- BOTÃO DIREITA -->
-        <button
-          class="banner-btn banner-proximo"
-          onclick="mudarBanner(1)"
-          aria-label="Próximo banner"
-        >
-          &#10095;
-        </button>
-      </div>
-
-      <!-- BOLINHAS -->
-      <div class="banner-indicadores">
-        <button class="indicador ativo" onclick="irParaBanner(0)"></button>
-
-        <button class="indicador" onclick="irParaBanner(1)"></button>
-
-        <button class="indicador" onclick="irParaBanner(2)"></button>
-      </div>
-    </section>
+          <li>
+            <a href="meucarrinho.html">
+              <img src="icone_carrinho.png" alt="Meu carrinho" />
+              Meu carrinho
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
     <div class="fundo">
       <div class="retangulo2">
@@ -92,11 +102,10 @@
 
     <div class="retangulo">
       <img
-        src="IMG/caminhao_frete_sem_fundo.png"
+        src="./caminhao_frete_sem_fundo.png"
         alt="Frete grátis"
         class="icone-seguranca"
       />
-
       <ul>
         <p>Frete grátis</p>
         <p>Para a sua compra acima de R$149</p>
@@ -105,11 +114,10 @@
       <div class="linha-vertical"></div>
 
       <img
-        src="IMG/icone_conta_segura.png"
+        src="./icone_conta_segura.png"
         alt="Conta segura"
         class="icone-seguranca"
       />
-
       <ul>
         <p>Conta segura</p>
         <p>Seus dados protegidos</p>
@@ -118,11 +126,10 @@
       <div class="linha-vertical"></div>
 
       <img
-        src="IMG/icone_troca_garantida.png"
+        src="./icone_troca_garantida.png"
         alt="Troca garantida"
         class="icone-seguranca"
       />
-
       <ul>
         <p>Troca garantida</p>
         <p>Em até 7 dias após o recebimento</p>
@@ -131,31 +138,188 @@
       <div class="linha-vertical"></div>
 
       <img
-        src="IMG/icone_atendimento.png"
+        src="./icone_atendimento.png"
         alt="Atendimento"
         class="icone-seguranca"
       />
-
       <ul>
         <p>Atendimento</p>
         <p>Suporte dedicado</p>
       </ul>
     </div>
 
+    <!-- =========================
+     BANNER DE ANÚNCIOS
+========================= -->
+    <section class="banner-anuncios">
+      <div class="banner-container">
+        <div class="banner-track" id="bannerTrack">
+          <div class="banner-slide">
+            <img src="IMG/banner1.png" alt="Banner 1" />
+          </div>
+
+          <div class="banner-slide">
+            <img src="IMG/banner2.png" alt="Banner 2" />
+          </div>
+
+          <div class="banner-slide">
+            <img src="IMG/banner3.png" alt="Banner 3" />
+          </div>
+        </div>
+
+        <button class="banner-btn banner-anterior" id="bannerAnterior">
+          ❮
+        </button>
+
+        <button class="banner-btn banner-proximo" id="bannerProximo">❯</button>
+      </div>
+    </section>
+
     <div class="mais-vendidos">
       <p>Mais vendidos</p>
     </div>
 
-    <section class="lista-livros-index">
-      <h2>Nossos livros</h2>
-      <div id="lista-livros-index"></div>
+    <div class="retangulos2">
+      <div class="retangulo5">
+        <img src="e_assim_que_acaba.png" alt="Collen Hoover" />
 
-      <button id="verMais" onclick="verMais()">Ver mais livros</button>
-    </section>
+        <p>É Assim que Acaba</p>
+        <p>Colleen Hoover<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$39,90</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="percy_jackson.png" alt="Rick Riordan" />
+
+        <p>O Ladrão de Raios</p>
+        <p>Rick Riordan<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$90,00</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="alchemised_livro.png" alt="SenLinYu" />
+
+        <p>Alchemised</p>
+        <p>SinLenYu<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$44,25</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="o_principe_cruel.png" alt="Holly Black" />
+        <p>o Princípe Cruel</p>
+        <p>Holly Black</p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$39,39</p>
+      </div>
+    </div>
+
+    <div class="retangulos2">
+      <div class="retangulo5">
+        <img src="box_harry_potter.png" alt="J. K. Rowling" />
+
+        <p>Box-Harry Potter</p>
+        <p>J. K. Rowling<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$308,69</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="hamlet_william.png" alt="William Shakespeare" />
+
+        <p>Hamlet</p>
+        <p>William Shakespeare<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$10,76</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="verity_collen.png" alt="Collen Hoover" />
+
+        <p>Verity</p>
+        <p>Collen Hoover<br /></p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$43,09</p>
+      </div>
+
+      <div class="retangulo5">
+        <img src="amor_e_gelato.png" alt="Jenna Evans Welch" />
+        <p>Amor e Gelato</p>
+        <p>Jenna Evans Welch</p>
+
+        <div class="estrelas">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <br />
+        <p>R$43,93</p>
+      </div>
+    </div>
 
     <div class="banner-promocao">
       <div class="icone-promocao">
-        <img src="IMG/etiqueta_icone.png" alt="Promoção" />
+        <img src="etiqueta_icone.png" alt="Promoção" />
       </div>
 
       <div class="texto-promocao">
@@ -163,7 +327,7 @@
         <p>Descobertas especiais em<br />livros selecionados!</p>
       </div>
 
-      <img class="imagem-livros" src="IMG/icone_livros.png" alt="Livros" />
+      <img class="imagem-livros" src="icone_livros.png" alt="Livros" />
 
       <button class="botao-promocao">
         Aproveitar agora
@@ -171,9 +335,35 @@
       </button>
     </div>
 
-    <!-- PRIMEIRO o arquivo com o array livros -->
-    <script src="js/livros.js"></script>
-    <script src="js/adicionarCarrinho.js"></script>
-    <script src="js/script.js"></script>
+    <header>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
+        <title>Book's World</title>
+
+        <link rel="stylesheet" href="style.css" />
+      </head>
+    </header>
+
+    <script>
+      const campoBusca = document.getElementById("campoBusca");
+      const botaoBusca = document.getElementById("botaoBusca");
+
+      botaoBusca.addEventListener("click", function () {
+        const pesquisa = campoBusca.value.toLowerCase().trim();
+
+        const livros = document.querySelectorAll(".retangulo5");
+
+        livros.forEach(function (livro) {
+          const nomeLivro = livro.innerText.toLowerCase();
+
+          if (nomeLivro.includes(pesquisa)) {
+            livro.style.display = "";
+          } else {
+            livro.style.display = "none";
+          }
+        });
+      });
+    </script>
   </body>
 </html>
