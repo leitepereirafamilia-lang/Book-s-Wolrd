@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Books World - Cadastro</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <div class="logo">
+            <span>📚</span>
+            <strong>Books World</strong>
+        </div>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="#">Gêneros</a>
+            <a href="#">Ajuda</a>
+            <a href="#">Contato</a>
+        </nav>
+
+        <div class="pesquisa">
+            <input
+                type="text"
+                placeholder="Buscar livros, autores..."
+            >
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="acoes">
+
+            <a href="index.html">
+                <i class="fa-regular fa-user"></i>
+                Entrar
+            </a>
+
+            <a class="ativo" href="cadastro.html">
+                <i class="fa-regular fa-user"></i>
+                Cadastrar
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="login-container">
+
+        <!-- LADO ESQUERDO -->
+        <section class="banner">
+
+            <div class="overlay"></div>
+
+            <div class="banner-conteudo">
+
+                <h1>
+                    Que bom te<br>
+                    ver por aqui!
+                </h1>
+
+                <div class="linha"></div>
+
+                <p>
+                    Faça login para acessar sua conta,<br>
+                    acompanhar pedidos, salvar favoritos<br>
+                    e muito mais.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- LADO DIREITO -->
+        <section class="login">
+
+            <div class="login-conteudo">
+
+                <h2>Criar uma conta</h2>
+
+                <p class="cadastro">
+                    Já tem uma conta?
+                    <a href="index.html">Entrar</a>
+                </p>
+
+
+                <!-- NOME -->
+                <div class="campo">
+
+                    <label for="nome">
+                        Nome completo
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            placeholder="Digite seu nome completo"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="campo">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Digite seu e-mail"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- TELEFONE -->
+                <div class="campo">
+
+                    <label for="telefone">
+                        Telefone
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <input
+                            type="tel"
+                            id="telefone"
+                            placeholder="Digite seu telefone"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- SENHA -->
+                <div class="campo">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            placeholder="Digite sua senha"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRMAR SENHA -->
+                <div class="campo">
+
+                    <label for="confirmar-senha">
+                        Confirmar senha
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="confirmar-senha"
+                            placeholder="Confirme sua senha"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÃO -->
+                <button class="btn-entrar">
+                    Cadastrar
+                </button>
+
+
+                <!-- DIVISÓRIA -->
+                <div class="ou">
+
+                    <span></span>
+
+                    <p>ou continue</p>
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- REDES SOCIAIS -->
+                <div class="social">
+
+                    <button>
+                        <i class="fa-brands fa-google"></i>
+                        Continuar com Google
+                    </button>
+
+                    <button>
+                        <i class="fa-brands fa-facebook"></i>
+                        Continuar com Facebook
+                    </button>
+
+                </div>
+
+
+                <!-- SEGURANÇA -->
+                <div class="seguranca">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <span>
+                        Seus dados estão protegidos conosco.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
