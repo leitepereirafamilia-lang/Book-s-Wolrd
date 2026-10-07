@@ -11,7 +11,35 @@ let selecionados = JSON.parse(localStorage.getItem("selecionados")) || [];
 if (carrinho.length === 0) {
   listaCarrinho.innerHTML = "<p>Seu carrinho está vazio</p>";
 }
+// ADICIONAR O LIVRO DE ID 1 NO CARRINHO (só uma vez)
 
+(function () {
+  const ID_LIVRO = 1;
+
+  // se já foi adicionado antes (ou já está no carrinho), não faz nada
+  if (
+    localStorage.getItem("livro1Adicionado") ||
+    carrinho.some((item) => item.livro.id === ID_LIVRO)
+  ) {
+    return;
+  }
+
+  // pega os dados do livro no livros.js
+  const livro =
+    typeof livros !== "undefined"
+      ? livros.find((l) => l.id === ID_LIVRO)
+      : null;
+
+  if (!livro) {
+    console.warn("Livro de id 1 não encontrado. O livros.js está carregado?");
+    return;
+  }
+
+  carrinho.push({ livro: livro, quantidade: 1 });
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  localStorage.setItem("livro1Adicionado", "sim");
+})();
 carrinho.forEach((item) => {
   const livro = item.livro;
 

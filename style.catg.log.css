@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #222;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    gap: 35px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    min-width: 120px;
+
+    color: #24384a;
+}
+
+.logo span {
+    font-size: 28px;
+}
+
+.logo strong {
+    font-family: Georgia, serif;
+    font-size: 15px;
+}
+
+
+/* MENU */
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #444;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #24384a;
+}
+
+
+/* PESQUISA */
+
+.pesquisa {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.pesquisa input {
+    width: 100%;
+    height: 35px;
+
+    border: none;
+    outline: none;
+
+    padding: 0 35px 0 12px;
+
+    font-size: 12px;
+}
+
+.pesquisa i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    color: #777;
+    font-size: 12px;
+}
+
+
+/* AÇÕES */
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    margin-left: auto;
+}
+
+.acoes a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    height: 72px;
+
+    text-decoration: none;
+    color: #444;
+
+    font-size: 13px;
+}
+
+.acoes a.ativo::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background-color: #d99b4b;
+}
+
+
+/* =========================
+   ÁREA DE LOGIN
+========================= */
+
+.login-container {
+    width: 100%;
+    min-height: calc(100vh - 72px);
+
+    display: flex;
+}
+
+
+/* =========================
+   BANNER ESQUERDO
+========================= */
+
+.banner {
+    width: 50%;
+    min-height: 800px;
+
+    position: relative;
+
+    background-image: url("baixados.jpg");
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+.acoes a:hover {
+    text-decoration: underline;
+    text-decoration-style:solid;
+    text-decoration-color: #d99b4b;
+}
+.cadastro a:hover {
+    text-decoration: underline;
+    text-decoration-style:solid;
+    text-decoration-color: #d99b4b;
+}
+
+/* Escurece a imagem */
+
+.overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+}
+
+
+/* TEXTO */
+
+.banner-conteudo {
+    position: absolute;
+
+    left: 15%;
+    top: 18%;
+
+    color: white;
+}
+
+.banner-conteudo h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 43px;
+    line-height: 1.15;
+
+    margin-bottom: 25px;
+}
+
+.linha {
+    width: 45px;
+    height: 4px;
+
+    background-color: #d99b4b;
+
+    margin-bottom: 35px;
+}
+
+.banner-conteudo p {
+    font-size: 16px;
+    line-height: 1.5;
+
+    color: #eeeeee;
+}
+
+
+/* =========================
+   LADO DO FORMULÁRIO
+========================= */
+
+.login {
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fff;
+}
+
+.login-conteudo {
+    width: 70%;
+    max-width: 520px;
+}
+
+
+/* TÍTULO */
+
+.login h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 34px;
+
+    color: #26394b;
+
+    margin-bottom: 8px;
+}
+
+.cadastro {
+    font-size: 14px;
+    color: #777;
+
+    margin-bottom: 35px;
+}
+
+.cadastro a {
+    color: #d09a58;
+
+    text-decoration: none;
+}
+
+
+/* CAMPOS */
+
+.campo {
+    margin-bottom: 28px;
+}
+
+.campo label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #333;
+
+    margin-bottom: 10px;
+}
+
+.input-box {
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+
+    padding: 0 15px;
+
+    transition: 0.2s;
+}
+
+.input-box:focus-within {
+    border-color: #26394b;
+}
+
+.input-box i {
+    color: #777;
+
+    margin-right: 12px;
+}
+
+.input-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+}
+
+.input-box input::placeholder {
+    color: #aaa;
+}
+
+
+/* =========================
+   BOTÃO ENTRAR
+========================= */
+
+.btn-entrar {
+    width: 100%;
+    height: 55px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #26394b;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-entrar:hover {
+    background-color: #1b2b3a;
+}
+
+
+/* =========================
+   OU
+========================= */
+
+.ou {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+.ou span {
+    height: 1px;
+
+    flex: 1;
+
+    background-color: #dddddd;
+}
+
+.ou p {
+    color: #999;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   GOOGLE / FACEBOOK
+========================= */
+
+.social {
+    display: flex;
+    gap: 20px;
+}
+
+.social button {
+    width: 50%;
+    height: 48px;
+
+    background-color: white;
+
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    color: #555;
+}
+
+.social button i {
+    margin-right: 8px;
+}
+
+.social button:first-child i {
+    color: #4285f4;
+}
+
+.social button:last-child i {
+    color: #1877f2;
+}
+
+.social button:hover {
+    background-color: #f8f8f8;
+}
+
+
+/* =========================
+   SEGURANÇA
+========================= */
+
+.seguranca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 40px;
+
+    color: #777;
+
+    font-size: 10px;
+}
+
+.seguranca i {
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 0 20px;
+        gap: 15px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .pesquisa {
+        display: none;
+    }
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    .banner {
+        width: 100%;
+        min-height: 400px;
+    }
+
+    .login {
+        width: 100%;
+        padding: 60px 20px;
+    }
+
+    .login-conteudo {
+        width: 90%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .acoes {
+        gap: 15px;
+    }
+
+    .acoes a {
+        font-size: 11px;
+    }
+
+    .banner-conteudo {
+        left: 10%;
+        top: 20%;
+    }
+
+    .banner-conteudo h1 {
+        font-size: 34px;
+    }
+
+    .social {
+        flex-direction: column;
+    }
+
+    .social button {
+        width: 100%;
+    }
+}
