@@ -82,42 +82,44 @@ nav ul li a:hover {
 
 .livros {
     display: grid;
-    grid-template-columns: repeat(4, 200px);
-    grid-template-rows: repeat(4, 280px);
-    gap: 30px;
-    padding: 20px;
+    grid-template-columns: repeat(3, 180px);
+    column-gap: 80px;
+    row-gap: 60px;
     justify-content: center;
-}
-
-.livros {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    margin: 50px auto;
 }
 
 .livro {
     width: 180px;
-    height: 220px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
-
-    overflow: hidden;
-}
-
-.livro a {
-    display: block;
-    width: 100%;
-    height: 100%;
+    text-align: center;
 }
 
 .livro img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
     display: block;
+    border-radius: 0;
+}
+
+.livro p {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Mantém os links pretos, mesmo depois de clicar */
+.livro a:link,
+.livro a:visited,
+.livro a:hover,
+.livro a:active {
+    color: #000000;
+    text-decoration: none;
 }
 
 footer {
-background-color: #ffff;
+background-color: #736d6d;
 color: white;
 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
 text-align: center;
