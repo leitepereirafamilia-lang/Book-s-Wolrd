@@ -323,6 +323,8 @@
 }
 
 .pagina-pagamento .form-entrega input {
+  box-sizing: border-box;
+
   width: 100%;
 
   height: 46px;
@@ -987,4 +989,56 @@
 
     padding: 30px 20px;
   }
+}
+
+/* =====================================================
+   ENTREGA: RESUMO / EDIÇÃO
+===================================================== */
+
+.pagina-pagamento .oculto {
+  display: none !important;
+}
+
+.pagina-pagamento .sem-endereco {
+  margin: 0;
+
+  font-size: 14px;
+
+  color: var(--cinza);
+}
+
+.pagina-pagamento .form-entrega .acoes-entrega {
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 4px;
+}
+
+.pagina-pagamento .btn-salvar-entrega {
+  padding: 12px 28px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background-color: var(--azul);
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.pagina-pagamento .btn-salvar-entrega:hover {
+  background-color: var(--azul-claro);
 }

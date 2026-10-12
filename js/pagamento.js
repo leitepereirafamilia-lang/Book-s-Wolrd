@@ -83,6 +83,133 @@ carrinho.forEach((item) => {
   }
 });
 
+// =========================
+// RESUMO DO PEDIDO (lado direito)
+// =========================
+
+// Capas que ficam fora da pasta IMG/capas (id do livro -> caminho da imagem)
+const CAPAS_ESPECIAIS = {
+  40: "IMG/aHipoteseDoAmor.jpg", // A Hipótese do Amor
+};
+
+function pegarCapa(livro, dadosAtuais) {
+  return (
+    CAPAS_ESPECIAIS[livro.id] ||
+    (dadosAtuais && dadosAtuais.imagem) ||
+    livro.imagem ||
+    "IMG/livro-sem-capa.png"
+  );
+}
+
+function montarResumoPedido() {
+  const itens = carrinho.filter(
+    (item) => item && item.livro && selecionados.includes(item.livro.id),
+  );
+
+  const lista = document.getElementById("itens-resumo");
+  const quantidade = document.getElementById("quantidade-pedido");
+  const subtotal = document.getElementById("subtotal-resumo");
+  const total = document.getElementById("total-resumo");
+
+  lista.innerHTML = "";
+
+  let valorItens = 0;
+  let quantidadeTotal = 0;
+
+  if (itens.length === 0) {
+    lista.innerHTML = "<p>Nenhum item selecionado.</p>";
+  }
+
+  itens.forEach((item) => {
+    const preco = Number(item.livro.preco) || 0;
+    const valor = preco * item.quantidade;
+
+    // dados atuais do livro no livros.js (se estiver carregado)
+    const dadosAtuais =
+      typeof livros !== "undefined"
+        ? livros.find((l) => l.id === item.livro.id)
+        : null;
+
+    const imagem = pegarCapa(item.livro, dadosAtuais);
+
+    // Avaliação: só aparece se o livro tiver "nota" (e "avaliacoes") no livros.js
+    const nota = item.livro.nota ?? (dadosAtuais && dadosAtuais.nota);
+    const numAvaliacoes =
+      item.livro.avaliacoes ?? (dadosAtuais && dadosAtuais.avaliacoes);
+
+    let avaliacao = "";
+
+    if (nota) {
+      const cheias = Math.round(nota);
+
+      avaliacao = `
+        <span class="avaliacao">
+          <span class="estrelas">${"★".repeat(cheias)}${"☆".repeat(5 - cheias)}</span>
+          ${String(nota).replace(".", ",")}
+          ${numAvaliacoes ? `(${Number(numAvaliacoes).toLocaleString("pt-BR")})` : ""}
+        </span>
+      `;
+    }
+
+    valorItens += valor;
+    quantidadeTotal += item.quantidade;
+
+    lista.innerHTML += `
+
+      <div class="item">
+
+        <div class="capa">
+          <img
+            src="${imagem}"
+            alt="Capa do livro ${item.livro.titulo}"
+            onerror="this.onerror=null; this.src='IMG/livro-sem-capa.png'"
+          >
+        </div>
+
+        <div class="dados-livro">
+
+          <strong>
+            ${item.livro.titulo}
+          </strong>
+
+          <small>
+            ${item.livro.autor || ""}
+          </small>
+
+          <small>
+            ${item.livro.categoria || ""}
+          </small>
+
+          ${avaliacao}
+
+          <strong class="preco">
+            R$ ${valor.toFixed(2).replace(".", ",")}
+          </strong>
+
+          <small>
+            Qtd: ${item.quantidade}
+          </small>
+
+        </div>
+
+      </div>
+
+    `;
+  });
+
+  const frete = itens.length > 0 ? 9.9 : 0;
+
+  quantidade.textContent = `(${quantidadeTotal} ${
+    quantidadeTotal === 1 ? "item" : "itens"
+  })`;
+
+  subtotal.textContent = `R$ ${valorItens.toFixed(2).replace(".", ",")}`;
+
+  total.textContent = `R$ ${(valorItens + frete).toFixed(2).replace(".", ",")}`;
+}
+
+document.addEventListener("DOMContentLoaded", montarResumoPedido);
+
 function confirmarPix() {
   const confirmar = confirm(
     `Deseja confirmar o pagamento de R$ ${valorTotal.toFixed(2)}?`,

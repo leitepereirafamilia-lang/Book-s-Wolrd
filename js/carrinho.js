@@ -8,6 +8,21 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 let selecionados = JSON.parse(localStorage.getItem("selecionados")) || [];
 
+// CAPAS QUE FICAM FORA DA PASTA IMG/capas (id do livro -> caminho da imagem)
+
+const CAPAS_ESPECIAIS = {
+  40: "IMG/aHipoteseDoAmor.jpg", // A Hipótese do Amor
+};
+
+function pegarCapa(livro, dadosAtuais) {
+  return (
+    CAPAS_ESPECIAIS[livro.id] ||
+    (dadosAtuais && dadosAtuais.imagem) ||
+    livro.imagem ||
+    "IMG/livro-sem-capa.png"
+  );
+}
+
 if (carrinho.length === 0) {
   listaCarrinho.innerHTML = "<p>Seu carrinho está vazio</p>";
 }
@@ -52,10 +67,7 @@ carrinho.forEach((item) => {
       ? livros.find((l) => l.id === livro.id)
       : null;
 
-  const imagem =
-    livro.imagem ||
-    (dadosAtuais && dadosAtuais.imagem) ||
-    "IMG/livro-sem-capa.png";
+  const imagem = pegarCapa(livro, dadosAtuais);
 
   listaCarrinho.innerHTML += `
 

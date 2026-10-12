@@ -41,7 +41,7 @@
 
               <h2>Informações de entrega</h2>
 
-              <button class="alterar" type="button">
+              <button class="alterar" type="button" id="botaoAlterar">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4 20h4L19 9l-4-4L4 16v4z" />
                   <path d="M13.5 6.5l4 4" />
@@ -50,81 +50,82 @@
               </button>
             </div>
 
-            <form class="form-entrega" id="form-entrega" onsubmit="return false">
-  <div class="campo campo-largo">
-    <label for="nome">Nome completo</label>
-    <input type="text" id="nome" autocomplete="name" />
-  </div>
+            <!-- RESUMO (fica assim até clicar em "Alterar dados") -->
+            <div class="dados-entrega" id="dados-entrega"></div>
 
-  <div class="campo">
-    <label for="cep">CEP</label>
-    <input
-      type="text"
-      id="cep"
-      inputmode="numeric"
-      maxlength="9"
-      placeholder="00000-000"
-      autocomplete="postal-code"
-    />
-    <small id="mensagem-cep"></small>
-  </div>
-
-  <div class="campo campo-largo">
-    <label for="rua">Rua</label>
-    <input type="text" id="rua" autocomplete="address-line1" />
-  </div>
-
-  <div class="campo">
-    <label for="numero">Número</label>
-    <input type="text" id="numero" inputmode="numeric" />
-  </div>
-
-  <div class="campo">
-    <label for="complemento">Complemento</label>
-    <input type="text" id="complemento" placeholder="Apto, bloco..." />
-  </div>
-
-  <div class="campo">
-    <label for="bairro">Bairro</label>
-    <input type="text" id="bairro" />
-  </div>
-
-  <div class="campo">
-    <label for="cidade">Cidade</label>
-    <input type="text" id="cidade" />
-  </div>
-
-  <div class="campo">
-    <label for="estado">UF</label>
-    <input type="text" id="estado" maxlength="2" />
-  </div>
-
-  <div class="campo">
-    <label for="telefone">Telefone</label>
-    <input type="tel" id="telefone" placeholder="(11) 90000-0000" />
-  </div>
-</form>
-
-              <div class="linha-entrega">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-                <div>
-                  <strong>Rua das Flores, 123 - Centro</strong>
-                  <span>São Paulo - SP • 01000-000</span>
-                </div>
+            <!-- FORMULÁRIO (só abre ao clicar em "Alterar dados") -->
+            <form
+              class="form-entrega oculto"
+              id="form-entrega"
+              onsubmit="return false;"
+            >
+              <div class="campo campo-largo">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" autocomplete="name" />
               </div>
 
-              <div class="linha-entrega">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"
-                  />
-                </svg>
-                <span>(11) 98765-4321</span>
+              <div class="campo">
+                <label for="cep">CEP</label>
+                <input
+                  type="text"
+                  id="cep"
+                  inputmode="numeric"
+                  maxlength="9"
+                  placeholder="00000-000"
+                  autocomplete="postal-code"
+                />
+                <small id="mensagem-cep"></small>
               </div>
-            </div>
+
+              <div class="campo campo-largo">
+                <label for="rua">Rua</label>
+                <input type="text" id="rua" autocomplete="address-line1" />
+              </div>
+
+              <div class="campo">
+                <label for="numero">Número</label>
+                <input type="text" id="numero" inputmode="numeric" />
+              </div>
+
+              <div class="campo">
+                <label for="complemento">Complemento</label>
+                <input
+                  type="text"
+                  id="complemento"
+                  placeholder="Apto, bloco..."
+                />
+              </div>
+
+              <div class="campo">
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" />
+              </div>
+
+              <div class="campo">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" />
+              </div>
+
+              <div class="campo">
+                <label for="estado">UF</label>
+                <input type="text" id="estado" maxlength="2" />
+              </div>
+
+              <div class="campo">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" placeholder="(11) 90000-0000" />
+              </div>
+              <div class="campo campo-largo acoes-entrega">
+                <small id="erro-entrega"></small>
+                <button
+                  type="button"
+                  class="btn-salvar-entrega"
+                  id="botaoSalvarEntrega"
+                >
+                  Salvar
+                </button>
+              </div>
+            </form>
           </div>
 
           <!-- FORMAS DE PAGAMENTO -->
@@ -288,131 +289,6 @@
     <script src="js/livros.js"></script>
     <script src="js/cep.js"></script>
     <script src="js/pagamento.js"></script>
-
-    <!-- RESUMO DO CARRINHO -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-        const selecionados =
-          JSON.parse(localStorage.getItem("selecionados")) || [];
-
-        const itens = carrinho.filter((item) =>
-          selecionados.includes(item.livro.id),
-        );
-
-        const lista = document.getElementById("itens-resumo");
-
-        const quantidade = document.getElementById("quantidade-pedido");
-
-        const subtotal = document.getElementById("subtotal-resumo");
-
-        const total = document.getElementById("total-resumo");
-
-        lista.innerHTML = "";
-
-        let valorTotal = 0;
-
-        let quantidadeTotal = 0;
-
-        if (itens.length === 0) {
-          lista.innerHTML = "<p>Nenhum item selecionado.</p>";
-        }
-
-        itens.forEach((item) => {
-          const preco = Number(item.livro.preco) || 0;
-
-          const valor = preco * item.quantidade;
-
-          // Capa salva no carrinho; se for item antigo, procura no livros.js
-          const dadosAtuais =
-            typeof livros !== "undefined"
-              ? livros.find((l) => l.id === item.livro.id)
-              : null;
-
-          const imagem =
-            item.livro.imagem ||
-            (dadosAtuais && dadosAtuais.imagem) ||
-            "IMG/livro-sem-capa.png";
-
-          // Avaliação: só aparece se o livro tiver "nota" (e "avaliacoes") no livros.js
-          const nota = item.livro.nota ?? (dadosAtuais && dadosAtuais.nota);
-          const numAvaliacoes =
-            item.livro.avaliacoes ?? (dadosAtuais && dadosAtuais.avaliacoes);
-
-          let avaliacao = "";
-
-          if (nota) {
-            const cheias = Math.round(nota);
-
-            avaliacao = `
-              <span class="avaliacao">
-                <span class="estrelas">${"★".repeat(cheias)}${"☆".repeat(5 - cheias)}</span>
-                ${String(nota).replace(".", ",")}
-                ${numAvaliacoes ? `(${Number(numAvaliacoes).toLocaleString("pt-BR")})` : ""}
-              </span>
-            `;
-          }
-
-          valorTotal += valor;
-
-          quantidadeTotal += item.quantidade;
-
-          lista.innerHTML += `
-
-                    <div class="item">
-
-                        <div class="capa">
-                            <img
-                                src="${imagem}"
-                                alt="Capa do livro ${item.livro.titulo}"
-                                onerror="this.onerror=null; this.src='IMG/livro-sem-capa.png'"
-                            >
-                        </div>
-
-                        <div class="dados-livro">
-
-                            <strong>
-                                ${item.livro.titulo}
-                            </strong>
-
-                            <small>
-                                ${item.livro.autor || ""}
-                            </small>
-
-                            <small>
-                                ${item.livro.categoria || ""}
-                            </small>
-
-                            ${avaliacao}
-
-                            <strong class="preco">
-                                R$ ${valor.toFixed(2).replace(".", ",")}
-                            </strong>
-
-                            <small>
-                                Qtd: ${item.quantidade}
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                `;
-        });
-
-        const frete = itens.length > 0 ? 9.9 : 0;
-
-        const valorFinal = valorTotal + frete;
-
-        quantidade.textContent = `(${quantidadeTotal} ${
-          quantidadeTotal === 1 ? "item" : "itens"
-        })`;
-
-        subtotal.textContent = `R$ ${valorTotal.toFixed(2).replace(".", ",")}`;
-
-        total.textContent = `R$ ${valorFinal.toFixed(2).replace(".", ",")}`;
-      });
-    </script>
+    <script src="js/entrega.js"></script>
   </body>
 </html>
