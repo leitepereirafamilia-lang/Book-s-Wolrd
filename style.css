@@ -1,112 +1,121 @@
-/* Barra de navegação pag generos */
-nav { 
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+* {
+  box-sizing: border-box;
+}
 
-padding: 15px; 
+body {
+  margin: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #fcfcfc;
+}
+
+/* =========================
+ CABEÇALHO
+========================= */
+
+header {
+  width: 100%;
+  min-height: 95px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+
+  padding: 20px 3%;
+
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================
+ MENU
+========================= */
+
+nav {
+  width: 100%;
 }
 
 nav ul {
-    list-style: none;
-    margin: 20px;
-    padding: 0;
-    
+  width: 100%;
 
-}
- 
-nav ul li {
-    display: inline-block;
-}
- 
-nav ul li a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #000000;
-}
- 
-nav ul li a:hover {
-    background-color: #9a9a9b;
-    
-}
- 
-/* estilo main pag generos*/
- main {
-    margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  list-style: none;
+
+  gap: clamp(12px, 2vw, 35px);
+
+  margin: 0;
+  padding: 0;
 }
 
-.frase h1 {
-    text-align: left;
-    margin-left: 50px;
+/* =========================
+ LOGO
+========================= */
+
+.logo img {
+  width: clamp(100px, 10vw, 145px);
+  height: auto;
+  display: block;
 }
 
-.caixas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+.fundo {
+  background-image: url("fundo_livros_exicaras.png");
+  background-size: 95%;
+  background-position: center 60px;
+  background-repeat: no-repeat;
 
-    width: 90%;
-    max-width: 1000px;
-    margin: 40px auto;
+  padding: 15px;
 }
 
-.caixa {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-     
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
- 
-    border-radius: 15px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-    color: black;
-    box-sizing: border-box;
-    overflow: hidden;
+.icone-seguranca {
+  width: 65px;
+  height: auto;
 }
 
-.caixa img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-    border-radius: 10px;
-    object-fit: cover;
+.retangulo5 img {
+  width: 300px;
+  height: 350px;
+  object-fit: contain;
+  display: block;
+  margin: 30px auto 25px;
 }
 
-.caixa h2 {
-    margin: 10px 0 0;
+.retangulo5 {
+  position: relative;
 }
 
 .livros {
-    display: grid;
-    grid-template-columns: repeat(3, 180px);
-    column-gap: 80px;
-    row-gap: 60px;
-    justify-content: center;
-    margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 180px);
+  column-gap: 80px;
+  row-gap: 60px;
+  justify-content: center;
+  margin: 50px auto;
 }
 
 .livro {
-    width: 180px;
-    text-align: center;
+  width: 180px;
+  text-align: center;
 }
 
 .livro img {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    display: block;
-    border-radius: 0;
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
 }
 
 .livro p {
-    margin-top: 8px;
-    font-size: 14px;
-    text-align: center;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Mantém os links pretos, mesmo depois de clicar */
@@ -114,19 +123,19 @@ nav ul li a:hover {
 .livro a:visited,
 .livro a:hover,
 .livro a:active {
-    color: #000000;
-    text-decoration: none;
+  color: #000000;
+  text-decoration: none;
 }
 
 footer {
-background-color: #736d6d;
-color: white;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
-text-align: center;
-padding: 20px;
-margin-top: 30px;
+  background-color: #736d6d;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
 }
 
 footer p {
-margin: 5px;
+  margin: 5px;
 }

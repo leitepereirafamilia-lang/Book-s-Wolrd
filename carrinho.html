@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho - Book's World</title>
+    <link rel="stylesheet" href="css/carrinho.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+  </head>
+
+  <body>
+    <script src="js/menu.js"></script>
+
+    <main class="pagina-carrinho">
+      <div class="caminho">
+        <a href="index.html">Inicio</a>
+
+        <span>›</span>
+
+        <strong>Carrinho</strong>
+      </div>
+
+      <section class="titulo-pagina">
+        <div>
+          <span class="etiqueta"> BOOK'S WORLD </span>
+
+          <h1>Meu carrinho</h1>
+
+          <p>Confira seus livros antes de finalizar a compra.</p>
+        </div>
+      </section>
+
+      <div class="layout-carrinho">
+        <!-- PRODUTOS -->
+
+        <section class="area-produtos">
+          <div class="cabecalho-produtos">
+            <div>
+              <h2>Seus livros</h2>
+
+              <p>Selecione os livros que deseja comprar.</p>
+            </div>
+
+            <label class="selecionar-todos">
+              <input type="checkbox" id="selecionar-todos" />
+
+              <span>Selecionar todos</span>
+            </label>
+          </div>
+
+          <section id="lista-carrinho"></section>
+        </section>
+
+        <!-- RESUMO -->
+
+        <aside class="resumo">
+          <div class="resumo-topo">
+            <span class="resumo-etiqueta"> SUA COMPRA </span>
+
+            <h2>Resumo da compra</h2>
+          </div>
+
+          <div class="resumo-conteudo">
+            <div class="resumo-linha">
+              <span>Subtotal</span>
+
+              <strong> R$ <span id="total">0.00</span> </strong>
+            </div>
+
+            <div class="resumo-linha">
+              <span>Frete</span>
+
+              <strong class="frete"> Gratis </strong>
+            </div>
+
+            <div class="linha"></div>
+
+            <div class="resumo-total">
+              <span>Total</span>
+
+              <strong> R$ <span id="total-resumo">0.00</span> </strong>
+            </div>
+
+            <button class="botao-finalizar" onclick="finalizarCompra()">
+              Finalizar compra
+            </button>
+
+            <a href="index.html" class="continuar"> ← Continuar comprando </a>
+
+            <div class="compra-segura">
+              <div class="icone-seguro">✓</div>
+
+              <div>
+                <strong> Compra segura </strong>
+
+                <p>Seus dados estarao protegidos durante a compra.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resumo-rodape">
+            <span>BOOK'S WORLD</span>
+
+            <span>Leitura que transforma.</span>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script src="js/carrinho.js"></script>
+    <script src="js/livros.js"></script>
+  </body>
+</html>
